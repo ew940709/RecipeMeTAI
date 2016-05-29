@@ -1,10 +1,10 @@
-target
+target/
 .classpath
 .project
-.settings
+.settings/
 .gradle
-bin
+bin/
 build
 target-eclipse
-h2db
+h2db/
 .springBeans
