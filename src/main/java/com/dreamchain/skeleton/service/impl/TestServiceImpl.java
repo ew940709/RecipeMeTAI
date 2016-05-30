@@ -3,12 +3,14 @@ package com.dreamchain.skeleton.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.dreamchain.skeleton.dao.TestDao;
 import com.dreamchain.skeleton.model.Test;
 import com.dreamchain.skeleton.service.TestService;
 
+@Service("testService") 
 public class TestServiceImpl implements TestService{
 	@Autowired TestDao userDao;
 

@@ -15,7 +15,7 @@ import com.dreamchain.skeleton.service.TestService;
 @RequestMapping("/test")
 public class RestController {
 	@Autowired
-	TestService dataServices;
+	TestService testService;
 	
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public @ResponseBody
@@ -23,7 +23,7 @@ public class RestController {
 			Test test = new Test();
 			test.setName("Test1");
 			test.setId(new Long(1));
-			dataServices.save(test);
+			testService.save(test);
 			
 			return "OK";
 

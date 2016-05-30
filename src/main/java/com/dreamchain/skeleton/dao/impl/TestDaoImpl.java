@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.dreamchain.skeleton.dao.TestDao;
 import com.dreamchain.skeleton.model.Test;
 
+@Repository
 public class TestDaoImpl implements TestDao {
 
 	@Autowired

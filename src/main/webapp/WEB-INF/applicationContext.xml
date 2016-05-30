@@ -12,6 +12,4 @@
 	<import resource="classpath:spring/*.xml"/>
 	<import resource="web-security.xml"/>
 	
-	<bean id="dataServices" class="com.dreamchain.skeleton.service.impl.TestServiceImpl"></bean>
-	<bean id="userDao" class="com.dreamchain.skeleton.dao.impl.TestDaoImpl"></bean>
 </beans>
