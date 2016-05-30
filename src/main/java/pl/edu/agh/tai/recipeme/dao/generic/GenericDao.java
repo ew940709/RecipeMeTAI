@@ -1,12 +1,10 @@
 package pl.edu.agh.tai.recipeme.dao.generic;
 
-import java.util.Map;
-
 public interface GenericDao<T> {
 
     T create(T t);
 
-    void delete(Object id);
+    void delete(T id);
 
     T find(Object id);
 

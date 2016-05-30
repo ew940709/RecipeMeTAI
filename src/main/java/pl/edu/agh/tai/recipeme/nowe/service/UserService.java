@@ -5,5 +5,5 @@ import org.springframework.transaction.annotation.Transactional;
 public interface UserService {
 
 	@Transactional
-    void createUser(String uname, String upwd);
+    void createUser(String uname, String upwd, boolean isEnabled);
 }

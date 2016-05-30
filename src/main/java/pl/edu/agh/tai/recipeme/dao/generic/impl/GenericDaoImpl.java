@@ -1,18 +1,19 @@
 package pl.edu.agh.tai.recipeme.dao.generic.impl;
 
+import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import pl.edu.agh.tai.recipeme.dao.generic.GenericDao;
 
 public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 	
-	@PersistenceContext
-    protected EntityManager em;
-
+	@Autowired
+	private SessionFactory sessionFactory;
+	
     private Class<T> type;
 
     @SuppressWarnings("unchecked")
@@ -24,23 +25,23 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 
     @Override
     public T create(final T t) {
-        this.em.persist(t);
-        return t;
+    	sessionFactory.getCurrentSession().merge(t);
+    	return t;
     }
 
     @Override
-    public void delete(final Object id) {
-        this.em.remove(this.em.getReference(type, id));
+    public void delete(final T t) {
+    	sessionFactory.getCurrentSession().delete(t);
     }
 
     @Override
     public T find(final Object id) {
-        return (T) this.em.find(type, id);
+    	return (T) sessionFactory.getCurrentSession().get(type, (Serializable) id);
     }
 
     @Override
     public T update(final T t) {
-        return this.em.merge(t);    
+        return (T) this.sessionFactory.getCurrentSession().merge(t); 
     }
 
 }
