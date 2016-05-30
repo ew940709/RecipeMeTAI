@@ -1,4 +1,4 @@
-package pl.edu.agh.tai.recipeme.dao.impl;
+package skeleton.dao.impl;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import pl.edu.agh.tai.recipeme.dao.UserDao;
 import pl.edu.agh.tai.recipeme.model.User;
+import skeleton.dao.UserDao;
 
 @Repository
 public class UserDaoImpl implements UserDao {

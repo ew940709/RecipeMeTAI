@@ -1,4 +1,4 @@
-package pl.edu.agh.tai.recipeme.service;
+package skeleton.service;
 
 import pl.edu.agh.tai.recipeme.model.User;
 import pl.edu.agh.tai.recipeme.web.UserCommand;

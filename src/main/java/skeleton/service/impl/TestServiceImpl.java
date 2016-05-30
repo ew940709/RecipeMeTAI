@@ -1,4 +1,4 @@
-package pl.edu.agh.tai.recipeme.service.impl;
+package skeleton.service.impl;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import pl.edu.agh.tai.recipeme.dao.TestDao;
 import pl.edu.agh.tai.recipeme.model.Test;
-import pl.edu.agh.tai.recipeme.service.TestService;
+import skeleton.dao.TestDao;
+import skeleton.service.TestService;
 
 @Service("testService") 
 public class TestServiceImpl implements TestService{

@@ -1,13 +1,18 @@
-package pl.edu.agh.tai.recipeme.dao;
+package skeleton.service;
 
 import java.util.List;
 
 import pl.edu.agh.tai.recipeme.model.Test;
 
-public interface TestDao {
+public interface TestService {
 	Test get(Long id);
-	void save(Test user);
+	
+	void save(Test test);
+	
 	void delete(Test user);
+	
 	List<Test> findAll();
+	
+	void saveAll(List<Test> testList);
 
 }

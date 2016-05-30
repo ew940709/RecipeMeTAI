@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import pl.edu.agh.tai.recipeme.model.Test;
-import pl.edu.agh.tai.recipeme.service.TestService;
+import skeleton.service.TestService;
 
 @Controller
 @RequestMapping("/test")

@@ -7,8 +7,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import pl.edu.agh.tai.recipeme.dao.impl.UserDaoImpl;
 import pl.edu.agh.tai.recipeme.model.User;
+import skeleton.dao.impl.UserDaoImpl;
 
 @Transactional
 public class UserDaoImplTest extends DaoTest {

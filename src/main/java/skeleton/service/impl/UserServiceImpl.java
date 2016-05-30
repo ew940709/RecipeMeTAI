@@ -1,14 +1,14 @@
-package pl.edu.agh.tai.recipeme.service.impl;
+package skeleton.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import pl.edu.agh.tai.recipeme.dao.UserDao;
 import pl.edu.agh.tai.recipeme.model.User;
-import pl.edu.agh.tai.recipeme.service.UserService;
 import pl.edu.agh.tai.recipeme.web.UserCommand;
 import pl.edu.agh.tai.recipeme.web.UserGrid;
+import skeleton.dao.UserDao;
+import skeleton.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {

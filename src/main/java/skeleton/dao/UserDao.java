@@ -1,4 +1,4 @@
-package pl.edu.agh.tai.recipeme.dao;
+package skeleton.dao;
 
 import java.util.List;
 

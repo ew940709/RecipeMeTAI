@@ -1,4 +1,4 @@
-package pl.edu.agh.tai.recipeme.service.impl;
+package skeleton.service.impl;
 
 import java.util.Arrays;
 import java.util.List;
@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import pl.edu.agh.tai.recipeme.dao.UserDao;
+import skeleton.dao.UserDao;
 
 @Service("userDetailsService") 
 public class UserDetailServiceImpl implements UserDetailsService {
