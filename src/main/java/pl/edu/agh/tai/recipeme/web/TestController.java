@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import pl.edu.agh.tai.recipeme.nowe.service.UserService;
+import pl.edu.agh.tai.recipeme.nowe.service.UserSecuredService;
 
 @Controller
 @RequestMapping("/testUsera")
 public class TestController {
 
 	@Autowired
-	UserService userService;
+	UserSecuredService userService;
 
 	@RequestMapping(method = RequestMethod.GET, value = "/testuj")
 	public @ResponseBody String get() {

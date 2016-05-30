@@ -3,15 +3,15 @@ package pl.edu.agh.tai.recipeme.nowe.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import pl.edu.agh.tai.recipeme.dao.generic.UserDao;
+import pl.edu.agh.tai.recipeme.dao.generic.UserSecuredDao;
 import pl.edu.agh.tai.recipeme.model.UserSecured;
-import pl.edu.agh.tai.recipeme.nowe.service.UserService;
+import pl.edu.agh.tai.recipeme.nowe.service.UserSecuredService;
 
 @Service("userService")
-public class UserServiceImpl implements UserService {
+public class UserSecuredServiceImpl implements UserSecuredService {
 
 	@Autowired
-	private UserDao userDao;
+	private UserSecuredDao userDao;
 
 	@Override
 	public void createUser(String uname, String upwd, boolean isEnabled) {
