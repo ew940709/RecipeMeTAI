@@ -1,9 +1,14 @@
 package pl.edu.agh.tai.recipeme.nowe.service;
 
-import org.springframework.transaction.annotation.Transactional;
+import pl.edu.agh.tai.recipeme.model.Category;
 
 public interface CategoryService {
 	
-	@Transactional
-    void createCategory();
+	Category get(Long id);
+	
+    Category createCategory(String name);
+	
+	void delete(Category category);
+	
+	Category update(Category category);
 }
