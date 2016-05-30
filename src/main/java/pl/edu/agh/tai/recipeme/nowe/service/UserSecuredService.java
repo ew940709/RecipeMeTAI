@@ -1,9 +1,14 @@
 package pl.edu.agh.tai.recipeme.nowe.service;
 
-import org.springframework.transaction.annotation.Transactional;
+import pl.edu.agh.tai.recipeme.model.UserSecured;
 
 public interface UserSecuredService {
-
-	@Transactional
-    void createUser(String uname, String upwd, boolean isEnabled);
+	
+	UserSecured get(Long id);
+	
+	UserSecured create(UserSecured userSecured);
+	
+	void delete(UserSecured userSecured);
+	
+	UserSecured update(UserSecured userSecured);
 }

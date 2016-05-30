@@ -20,7 +20,7 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 	public GenericDaoImpl() {
         Type t = getClass().getGenericSuperclass();
         ParameterizedType pt = (ParameterizedType) t;
-        type = (Class) pt.getActualTypeArguments()[0];
+        type = (Class<T>) pt.getActualTypeArguments()[0];
     }
 
     @Override
@@ -34,12 +34,14 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
     	sessionFactory.getCurrentSession().delete(t);
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public T find(final Object id) {
     	return (T) sessionFactory.getCurrentSession().get(type, (Serializable) id);
     }
 
-    @Override
+    @SuppressWarnings("unchecked")
+	@Override
     public T update(final T t) {
         return (T) this.sessionFactory.getCurrentSession().merge(t); 
     }

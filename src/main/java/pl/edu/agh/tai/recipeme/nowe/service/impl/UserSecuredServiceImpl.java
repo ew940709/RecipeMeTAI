@@ -7,16 +7,34 @@ import pl.edu.agh.tai.recipeme.dao.generic.UserSecuredDao;
 import pl.edu.agh.tai.recipeme.model.UserSecured;
 import pl.edu.agh.tai.recipeme.nowe.service.UserSecuredService;
 
-@Service("userService")
+@Service("userSecuredService")
 public class UserSecuredServiceImpl implements UserSecuredService {
 
 	@Autowired
 	private UserSecuredDao userDao;
 
 	@Override
-	public void createUser(String uname, String upwd, boolean isEnabled) {
-		UserSecured u = new UserSecured(uname, upwd, isEnabled);
-
-		userDao.create(u);
+	public UserSecured get(Long id) {
+		UserSecured userSecured = userDao.find(id);
+		return userSecured;
 	}
+
+	@Override
+	public UserSecured create(UserSecured userSecured) {
+		userDao.create(userSecured);
+		return userSecured;
+	}
+
+	@Override
+	public void delete(UserSecured userSecured) {
+		userDao.delete(userSecured);
+		
+	}
+
+	@Override
+	public UserSecured update(UserSecured userSecured) {
+		return userDao.update(userSecured);
+	}
+
+	
 }
