@@ -19,10 +19,8 @@ public class CategoryServiceImpl implements CategoryService{
 	}
 
 	@Override
-	public Category createCategory(String name) {
-		Category cat = new Category(name);
-		categoryDao.create(cat);
-		return cat;
+	public Category create(Category category) {
+		return categoryDao.create(category);
 	}
 
 

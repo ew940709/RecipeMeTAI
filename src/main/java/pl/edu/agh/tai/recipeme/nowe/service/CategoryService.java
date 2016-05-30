@@ -6,7 +6,7 @@ public interface CategoryService {
 	
 	Category get(Long id);
 	
-    Category createCategory(String name);
+    Category create(Category category);
 	
 	void delete(Category category);
 	
