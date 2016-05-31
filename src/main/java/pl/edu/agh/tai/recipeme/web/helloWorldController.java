@@ -16,8 +16,5 @@ public class helloWorldController {
 	@RequestMapping( value = "/index")
 	public void index() {
 	}
-	
-	@RequestMapping( value = "/findRecipe")
-	public void findRecipe() {
-	}
+
 }

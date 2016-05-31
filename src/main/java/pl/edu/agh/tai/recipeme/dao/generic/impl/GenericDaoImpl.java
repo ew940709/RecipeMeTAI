@@ -12,7 +12,7 @@ import pl.edu.agh.tai.recipeme.dao.generic.GenericDao;
 public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 	
 	@Autowired
-	private SessionFactory sessionFactory;
+	protected SessionFactory sessionFactory;
 	
     private Class<T> type;
 

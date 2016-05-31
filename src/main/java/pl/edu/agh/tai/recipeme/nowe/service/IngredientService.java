@@ -1,8 +1,10 @@
 package pl.edu.agh.tai.recipeme.nowe.service;
 
+import java.util.List;
+
 import pl.edu.agh.tai.recipeme.model.Ingredient;
 
-public interface IngedientService {
+public interface IngredientService {
 	
 	Ingredient get(Long id);
 	
@@ -11,4 +13,7 @@ public interface IngedientService {
 	void delete(Ingredient ingredient);
 	
 	Ingredient update(Ingredient ingredient);
+	
+	List<Ingredient> getAll();
+
 }
