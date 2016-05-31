@@ -1,0 +1,118 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.btn-light {
+    border-radius: 0;
+    color: #333;
+    background-color: rgb(255,255,255);
+}
+
+.btn-light:hover,
+.btn-light:focus,
+.btn-light:active {
+    color: #333;
+    background-color: rgba(255,255,255,0.8);
+}
+
+
+.services {
+    padding: 50px 0;
+    width: 100%;
+}
+
+
+.text-vertical-center {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.text-vertical-center h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 4.5em;
+    font-weight: 700;
+    color : white;
+    text-shadow: 2px 2px rgba(63,107,169, 0.5);
+}
+
+.text-vertical-center h3 {
+	color: #fff;
+}
+
+/* Custom Button Styles */
+
+.btn-dark {
+    border-radius: 0;
+    color: #fff;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.btn-dark:hover,
+.btn-dark:focus,
+.btn-dark:active {
+    color: #fff;
+    background-color: rgba(0,0,0,0.7);
+}
+
+.header {
+    display: table;
+    position: relative;
+    width: 100%;
+    height: 70%;
+    background: url(../images/cooking-bg.jpg) no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.loginBox{
+	padding-top: 80px;
+}
+
+.loginBox h1{
+	text-align: center;
+}
+.fieldcontainer {
+	width : 30%;
+	margin-right : auto;
+	margin-left : auto;
+}
+
+#logButton {
+	border-radius:0px;
+	width: 100%;
+	height: 40px;
+}
+
+.shadowClass {
+	background: rgba(0,0,0,0.4);
+}
+
+.nav.navbar-nav.navbar-right {
+	margin-right:0px;
+}
+
+#footer {
+  background-color:#414141;
+  position: fixed;
+  bottom:0;
+  width:100%;
+}
+
+#footer a {
+  color:#efefef;
+}
+
+.footerText {
+	color: white;
+	font-size:12px;
+}
