@@ -12,6 +12,6 @@ public class IngredientDaoImpl extends GenericDaoImpl<Ingredient> implements Ing
 
 	@Override
 	public List<Ingredient> getAll() {
-		return this.sessionFactory.getCurrentSession().createQuery("SELECT * FROM ingredient").list();
+		return this.sessionFactory.getCurrentSession().createSQLQuery("SELECT * FROM ingredient").list();
 	}
 }
