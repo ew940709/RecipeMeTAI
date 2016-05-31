@@ -67,7 +67,7 @@
         We love dinners together. We love eating.
       </h4>
 
-            <p class="">Don't ask what to eat. Ask whom instead.</p>
+            <p class="">Don't ask what to eat. Ask with whom instead.</p>
             <hr class="">
         </div>
         <!--/col-->
