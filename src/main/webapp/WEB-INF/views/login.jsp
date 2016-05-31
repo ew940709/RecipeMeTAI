@@ -1,7 +1,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%><%@
 	taglib prefix="form" uri="http://www.springframework.org/tags/form" %><%@
 	taglib prefix="spring" uri="http://www.springframework.org/tags"
-%><!DOCTYPE html>
+%>
+<%@	taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -23,10 +25,17 @@
         		<li><a href="<c:url value='/addRecipe' />">Add recipe</a></li>
 	  		</ul>
 	  		
-	  		<ul class="nav navbar-nav navbar-right">
-			      <li><a href="#"> Sign Up</a></li>
-			      <li><a class="active" href="<c:url value='/login' />"> Login</a></li>
-   			</ul>
+	  		<sec:authorize access="isAnonymous()">
+		  		<ul class="nav navbar-nav navbar-right navMargin">
+				      <li><a href="#">Sign Up</a></li>
+				      <li><a class="active" href="<c:url value='/login' />"> Login</a></li>
+	   			</ul>
+   			</sec:authorize>
+   			<sec:authorize access="isAuthenticated()">
+		  		<ul class="nav navbar-nav navbar-right navMargin">
+				      <li><a href="<c:url value="/j_spring_security_logout" />""> Logout</a></li>
+	   			</ul>
+   			</sec:authorize>
 	  	</div>
 	</nav>
 	
