@@ -39,7 +39,7 @@
 				<div class="block">
 					<div class="form-gorup">
 						<label for="email">Username:</label>
-						<input type="email" class="form-control" placeholder="Enter email" name="j_username">
+						<input class="form-control" placeholder="Enter username" name="j_username">
 					</div>
 	
 					<div class="form-group">

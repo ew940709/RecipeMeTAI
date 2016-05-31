@@ -11,5 +11,5 @@
 	
 	<import resource="classpath:spring/*.xml"/>
 	<import resource="web-security.xml"/>
-	
+	<bean id="webexpressionHandler" class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" /> 
 </beans>
