@@ -48,48 +48,46 @@
 	<div class="container loginBox">
 		<h1>Find Recipe</h1>
 
-		<form action="" method="POST" modelAttribute="ingredientGrid">
-			<fieldset class="fieldcontainer">
-				<!-- <legend>Enter username and password</legend>
+		<form:form action="" method="POST" modelAttribute="ingredientGrid">
+			<fieldset>
+				<div class="row">
 
-				<div class="block">
-					<div class="form-gorup">
-						<label for="email">Username:</label>
-						<input class="form-control" placeholder="Enter username" name="j_username">
+					<div class="col-md-4 pull-left ">
+						<div class="container">
+							<c:forEach var="userEntry" items="${ingredientGrid.categoryMap}" varStatus="row">
+								<label class="form-control-label">${userEntry.key.name}</label>
+								<c:forEach var="ingredient" items="${ingredientGrid.categoryMap[userEntry.key]}">
+									<div class="form-group row checkbox">
+										<form:input  path="ingredientGrid.categoryMap[${userEntry.key}].selected" />`
+										<c:if test="${ingredient.selected}">
+											<input type="checkbox" checked="checked" class="checkbox"
+												value="${ingredient.name}">
+											<span class="c-indicator"></span>${ingredient.name }
+									</c:if>
+										<c:if test="${!ingredient.selected}">
+											<label class="c-input c-checkbox"> <input
+												type="checkbox" class="checkbox" value="${ingredient.name}" /><span
+												class="c-indicator"></span> ${ingredient.name }
+											</label>
+										</c:if>
+									</div>
+								</c:forEach>
+
+							</c:forEach>
+						</div>
+
 					</div>
-	
-					<div class="form-group">
-						<label for="pwd">Password:</label>
-						<input type="password" class="form-control" placeholder="Enter password" name="j_password">
+				</div>
+				<div class="row">
+					<div class="text-center col-md-4 col-md-offset-4">
+						<input id="logButton" type="submit" class='btn btn-dark btn-lg'
+							value="Find">
 					</div>
 
-				</div>
--->
-
-				<div class="container">
-					<c:forEach var="userEntry" items="${ingredientGrid.categoryMap}"
-						varStatus="row">
-						<label>${userEntry.key.name}</label>
-						<c:forEach var="ingredient"
-							items="${ingredientGrid.categoryMap[userEntry.key]}">
-							<c:if test="${ingredient.selected}">
-								<input type="checkbox" checked="checked" class="rowSelector"
-									value="${ingredient.name}">${ingredient.name } 
-						</c:if>
-							<c:if test="${!ingredient.selected}">
-								<input type="checkbox" class="rowSelector"
-									value="${ingredient.name}" /> ${ingredient.name}
-						</c:if>
-						</c:forEach>
-					</c:forEach>
-				</div>
-				<div class="field vertical text-center">
-					<input id="logButton" type="submit" class='btn btn-dark btn-lg'
-						value="Find">
 				</div>
 
 			</fieldset>
-		</form>
+		</form:form>
 		<div></div>
 	</div>
 	<div id="footer" class="">
