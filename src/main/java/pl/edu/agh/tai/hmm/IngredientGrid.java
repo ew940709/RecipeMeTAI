@@ -8,6 +8,8 @@ import java.util.Set;
 
 import javax.validation.Valid;
 
+import com.thoughtworks.selenium.webdriven.commands.IsSomethingSelected;
+
 import pl.edu.agh.tai.recipeme.model.Category;
 import pl.edu.agh.tai.recipeme.model.Ingredient;
 
@@ -17,22 +19,12 @@ public class IngredientGrid {
 	private Map<Category, Set<IngredientSelection>> categoryMap;
 	
 	public IngredientGrid(){
+		categoryMap = new LinkedHashMap<>();
 	}
 	
 	public IngredientGrid(List<Ingredient> ingredients){
-		categoryMap = new LinkedHashMap<>();
-		for (Ingredient ingredient: ingredients){
-			IngredientSelection is = new IngredientSelection(ingredient);
-			
-			if (categoryMap.containsKey(ingredient.getCategory())){
-				Set<IngredientSelection> iSet = categoryMap.get(ingredient.getCategory());
-				
-				iSet.add(is);
-				
-			}else{
-				categoryMap.put(ingredient.getCategory(), new HashSet<IngredientSelection>());
-			}
-		}
+		this();
+		setIngredientList(ingredients);
 	}
 
 	public Map<Category, Set<IngredientSelection>> getCategoryMap() {
@@ -53,6 +45,21 @@ public class IngredientGrid {
 			}
 		}
 		return ingredients;
+	}
+	
+	public void setIngredientList(List<Ingredient> ingredients){
+		for (Ingredient ingredient: ingredients){
+			IngredientSelection is = new IngredientSelection(ingredient);
+			
+			Set<IngredientSelection> iSet = null;
+			if (categoryMap.containsKey(ingredient.getCategory())){
+				iSet = categoryMap.get(ingredient.getCategory());
+			}else{
+				iSet = new HashSet<IngredientSelection>();
+				categoryMap.put(ingredient.getCategory(), iSet);
+			}
+			iSet.add(is);
+		}
 	}
 
 }
