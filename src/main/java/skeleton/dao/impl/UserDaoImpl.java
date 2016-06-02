@@ -31,7 +31,12 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	public void save(User user) {
-		sessionFactory.getCurrentSession().merge(user);
+		User tmp = findByUserName(user.getName());
+		System.out.println(tmp);
+		if(tmp == null){
+			sessionFactory.getCurrentSession().merge(user);
+		} 
+		
 		
 	}
 

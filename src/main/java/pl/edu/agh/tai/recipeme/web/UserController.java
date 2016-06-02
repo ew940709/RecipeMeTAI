@@ -34,14 +34,11 @@ public class UserController {
 		if (result.hasErrors()) {
 			model.addAttribute("userGrid", userService.findAll());
 			model.addAttribute("errors", true);
-			System.out.println("log 1 log 1 log 1");
 		}
 		PasswordEncoder passwordEncoder = new StandardPasswordEncoder();
 		userCommand.setPassword(passwordEncoder.encode(userCommand.getPassword()));
 		userService.save(userCommand);
-		System.out.println("log 1 log 1 log 122");
 		model.addAttribute("registration", true);
-		System.out.println("log 1 log 1 log 2");
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, params="_method=put")
