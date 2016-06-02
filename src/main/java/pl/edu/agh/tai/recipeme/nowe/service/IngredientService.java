@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
+import pl.edu.agh.tai.hmm.IngredientGrid;
 import pl.edu.agh.tai.recipeme.model.Ingredient;
 
 public interface IngredientService {
@@ -18,5 +19,9 @@ public interface IngredientService {
 	Ingredient update(Ingredient ingredient);
 	
 	List<Ingredient> getAll();
+
+	void updateWithAll(IngredientGrid ingredientGrid);
+	
+	IngredientGrid findAll();
 
 }
