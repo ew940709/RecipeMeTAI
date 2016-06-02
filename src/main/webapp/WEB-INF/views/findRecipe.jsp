@@ -56,7 +56,7 @@
 						<div class="container">
 							<c:forEach var="userEntry" items="${ingredientGrid.categoryMap}" varStatus="row">
 								<label class="form-control-label">${userEntry.key.name}</label>
-								<c:forEach var="ingredient" items="${ingredientGrid.categoryMap[userEntry.key]}">
+								<c:forEach var="ingredient" items="${ingredientGrid.categoryMap[userEntry.value]}">
 									<div class="form-group row checkbox">
 										<form:input  path="ingredientGrid.categoryMap[${userEntry.key}].selected" />`
 										<c:if test="${ingredient.selected}">
