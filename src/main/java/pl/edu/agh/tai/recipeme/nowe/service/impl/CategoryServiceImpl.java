@@ -23,7 +23,6 @@ public class CategoryServiceImpl implements CategoryService{
 		return categoryDao.create(category);
 	}
 
-
 	@Override
 	public void delete(Category category) {
 		categoryDao.delete(category);
