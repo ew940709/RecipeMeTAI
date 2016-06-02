@@ -20,6 +20,8 @@ public class RecipeController {
 	@RequestMapping(value="/findRecipe", method=RequestMethod.GET)
 	public void findRecipe(ModelMap model) {
 		List<Ingredient> ingredients = ingredientService.getAll();
+		System.out.println(ingredients.size());
+		System.out.println("name "+ingredients.get(0).getName());
 		model.addAttribute("ingredients", ingredients);
 	}
 

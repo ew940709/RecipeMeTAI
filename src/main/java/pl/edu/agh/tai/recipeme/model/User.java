@@ -34,6 +34,9 @@ public class User implements Serializable {
 	@NotNull
 	private String address;
 	
+	public User(){
+		
+	}
 
 	public Long getId() {
 		return id;

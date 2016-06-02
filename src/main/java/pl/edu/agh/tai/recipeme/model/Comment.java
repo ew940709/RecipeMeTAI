@@ -30,7 +30,9 @@ public class Comment {
 	@NotNull
 	private Date date;
 
-	
+	public Comment(){
+		
+	}
 	
 	public Comment(UserSecured author, String content,  Date date) {
 		super();

@@ -27,7 +27,7 @@
 	  		
 	  		<sec:authorize access="isAnonymous()">
 		  		<ul class="nav navbar-nav navbar-right navMargin">
-				      <li><a href="#">Sign Up</a></li>
+				      <li><a href="<c:url value='/user' />">Sign Up</a></li>
 				      <li><a class="active" href="<c:url value='/login' />"> Login</a></li>
 	   			</ul>
    			</sec:authorize>
@@ -46,12 +46,12 @@
 				<legend>Enter username and password</legend>
 
 				<div class="block">
-					<div class="form-gorup">
+					<div class="field">
 						<label for="email">Username:</label>
 						<input class="form-control" placeholder="Enter username" name="j_username">
 					</div>
 	
-					<div class="form-group">
+					<div class="field">
 						<label for="pwd">Password:</label>
 						<input type="password" class="form-control" placeholder="Enter password" name="j_password">
 					</div>

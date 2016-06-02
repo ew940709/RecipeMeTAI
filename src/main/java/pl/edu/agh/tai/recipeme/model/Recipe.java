@@ -39,6 +39,10 @@ public class Recipe {
 	private Double averageRating;
 	
 	
+	public Recipe(){
+		
+	}
+	
 
 	public Recipe(UserSecured author, String description) {
 		super();

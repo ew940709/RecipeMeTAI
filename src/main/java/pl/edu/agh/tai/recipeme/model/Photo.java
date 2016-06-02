@@ -31,6 +31,9 @@ public class Photo {
 	@NotNull
 	private String description;
 
+	public Photo(){
+		
+	}
 	
 	public Photo(UserSecured author, Date date, byte[] content, String description) {
 		super();

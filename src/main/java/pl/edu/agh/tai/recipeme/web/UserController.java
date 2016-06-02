@@ -26,19 +26,22 @@ public class UserController {
 	@RequestMapping(method = RequestMethod.GET)
 	public void get(Model model, @ModelAttribute UserCommand userCommand) {
 		model.addAttribute("userGrid", userService.findAll());
+		model.addAttribute("registration", false);
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String post(Model model, @Valid UserCommand userCommand, BindingResult result) {
+	public void post(Model model, @Valid UserCommand userCommand, BindingResult result) {
 		if (result.hasErrors()) {
 			model.addAttribute("userGrid", userService.findAll());
-			return URL;
+			model.addAttribute("errors", true);
+			System.out.println("log 1 log 1 log 1");
 		}
 		PasswordEncoder passwordEncoder = new StandardPasswordEncoder();
 		userCommand.setPassword(passwordEncoder.encode(userCommand.getPassword()));
 		userService.save(userCommand);
-		
-		return "redirect:" + URL;
+		System.out.println("log 1 log 1 log 122");
+		model.addAttribute("registration", true);
+		System.out.println("log 1 log 1 log 2");
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, params="_method=put")

@@ -26,7 +26,9 @@ public class Ingredient {
 	@NotNull
 	private Boolean isApproved;
 
-	
+	public Ingredient(){
+		
+	}
 	public Ingredient(String name, Category category, Boolean isApproved) {
 		super();
 		this.name = name;

@@ -91,6 +91,7 @@ body {
 	border-radius:0px;
 	width: 100%;
 	height: 40px;
+	margin-top : 20px;
 }
 
 .shadowClass {
@@ -115,4 +116,9 @@ body {
 .footerText {
 	color: white;
 	font-size:12px;
+}
+
+
+.errors {
+	color: red;
 }

@@ -18,7 +18,9 @@ public class Category {
 	@NotNull
 	private String name;
 
-	
+	public Category(){
+		
+	}
 	
 	public Category(String name) {
 		super();

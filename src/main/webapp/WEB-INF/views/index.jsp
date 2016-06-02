@@ -23,7 +23,7 @@
 	  		</ul>
 	  		<sec:authorize access="isAnonymous()">
 		  		<ul class="nav navbar-nav navbar-right navMargin">
-				      <li><a href="#">Sign Up</a></li>
+				      <li><a href="<c:url value='/user' />">Sign Up</a></li>
 				      <li><a href="<c:url value='/login' />"> Login</a></li>
 	   			</ul>
    			</sec:authorize>
