@@ -30,7 +30,8 @@ public class RecipeController {
 	@RequestMapping(value="/findRecipe", method=RequestMethod.GET)
 	public void findRecipe(ModelMap model, @ModelAttribute IngredientGrid ingredientGrid) {
 		List<Ingredient> ingredients = ingredientService.getAll();
-		ingredientGrid.setIngredientList(ingredients);
+		ingredientGrid.setIngredients(ingredients);
+		model.addAttribute("ings",ingredientService.getAll());
 	}
 	
 	

@@ -2,13 +2,12 @@ package pl.edu.agh.tai.hmm;
 
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 import javax.validation.Valid;
-
-import com.thoughtworks.selenium.webdriven.commands.IsSomethingSelected;
 
 import pl.edu.agh.tai.recipeme.model.Category;
 import pl.edu.agh.tai.recipeme.model.Ingredient;
@@ -24,7 +23,7 @@ public class IngredientGrid {
 	
 	public IngredientGrid(List<Ingredient> ingredients){
 		this();
-		setIngredientList(ingredients);
+		setIngredients(ingredients);
 	}
 
 	public Map<Category, Set<IngredientSelection>> getCategoryMap() {
@@ -35,19 +34,20 @@ public class IngredientGrid {
 		this.categoryMap = categoryMap;
 	}
 	
-	public Set<Ingredient> getIngredients(){
-		Set<Ingredient> ingredients = new HashSet<Ingredient>();
+	public List<Ingredient> getIngredients(){
+		List<Ingredient> ingredients = new LinkedList<Ingredient>();
 		
 		for(Map.Entry<Category, Set<IngredientSelection>> entry: categoryMap.entrySet()){
 
 			for (IngredientSelection is: entry.getValue()){
 				ingredients.add(is.toIngredient());
+
 			}
 		}
 		return ingredients;
 	}
 	
-	public void setIngredientList(List<Ingredient> ingredients){
+	public void setIngredients(List<Ingredient> ingredients){
 		for (Ingredient ingredient: ingredients){
 			IngredientSelection is = new IngredientSelection(ingredient);
 			

@@ -28,7 +28,7 @@ public class IngredientSelection extends Ingredient{
 		
 	}
 	
-	public boolean isSelected() {
+	public boolean getSelected() {
 		return selected;
 	}
 
@@ -36,3 +36,4 @@ public class IngredientSelection extends Ingredient{
 		this.selected = selected;
 	}
 }
+

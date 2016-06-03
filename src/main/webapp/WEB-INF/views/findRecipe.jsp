@@ -54,11 +54,13 @@
 
 					<div class="col-md-4 pull-left ">
 						<div class="container">
-							<c:forEach var="userEntry" items="${ingredientGrid.categoryMap}" varStatus="row">
-								<label class="form-control-label">${userEntry.key.name}</label>
-								<c:forEach var="ingredient" items="${ingredientGrid.categoryMap[userEntry.value]}">
+
+							<%-- 
+							<c:forEach var="mapEntry" items="${ingredientGrid.categoryMap}" varStatus="row">
+								<label class="form-control-label">${mapEntry.key.name}</label>
+								<c:forEach var="ingredient" items="${mapEntry.value}" varStatus="status">
 									<div class="form-group row checkbox">
-										<form:input  path="ingredientGrid.categoryMap[${userEntry.key}].selected" />`
+										<form:input  path="ingredientGrid.categoryMap[${mapEntry.key}][${status.index}].selected" />`
 										<c:if test="${ingredient.selected}">
 											<input type="checkbox" checked="checked" class="checkbox"
 												value="${ingredient.name}">
@@ -73,6 +75,15 @@
 									</div>
 								</c:forEach>
 
+							</c:forEach>
+							--%>
+
+							<c:forEach var="ingredient" items="${ings}" varStatus="status">
+								<div class="form-group row checkbox">
+									<input type="checkbox" class="checkbox"
+										value="${ingredient.name}"> <span class="c-indicator"></span>${ingredient.name}
+
+								</div>
 							</c:forEach>
 						</div>
 
