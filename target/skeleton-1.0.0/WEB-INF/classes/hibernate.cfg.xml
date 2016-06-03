@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.jboss.org/dtd/hibernate/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<mapping class="pl.edu.agh.tai.recipeme.model.User"></mapping>
+		<mapping class="pl.edu.agh.tai.recipeme.model.Test"></mapping>
+		<mapping class="pl.edu.agh.tai.recipeme.model.UserSecured"></mapping>
+		<mapping class="pl.edu.agh.tai.recipeme.model.UserRole"></mapping>
+		<mapping class="pl.edu.agh.tai.recipeme.model.Category"></mapping>
+		<mapping class="pl.edu.agh.tai.recipeme.model.Comment"></mapping>
+		<mapping class="pl.edu.agh.tai.recipeme.model.Ingredient"></mapping>
+		<mapping class="pl.edu.agh.tai.recipeme.model.Photo"></mapping>
+		<mapping class="pl.edu.agh.tai.recipeme.model.Recipe"></mapping>
+	</session-factory>
+</hibernate-configuration>
