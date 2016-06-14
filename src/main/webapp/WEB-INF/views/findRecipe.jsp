@@ -60,7 +60,7 @@
 								<label class="form-control-label">${mapEntry.key.name}</label>
 								<c:forEach var="ingredient" items="${mapEntry.value}" varStatus="status">
 									<div class="form-group row checkbox">
-										<form:input  path="categoryMap[${mapEntry.key}][${status.index}]" />  
+										<form:input  path="categoryMap[${mapEntry.key}][${status.index}].selected" />  
 										<c:if test="${ingredient.selected}">
 											<input type="checkbox" checked="checked" class="checkbox"
 												value="${ingredient.name}">
