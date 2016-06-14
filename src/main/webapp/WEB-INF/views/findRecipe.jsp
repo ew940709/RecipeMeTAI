@@ -39,7 +39,7 @@
 		</sec:authorize>
 		<sec:authorize access="isAuthenticated()">
 			<ul class="nav navbar-nav navbar-right navMargin">
-				<li><a href="<c:url value="/j_spring_security_logout" />"">
+				<li><a href="<c:url value="/j_spring_security_logout" />">
 						Logout</a></li>
 			</ul>
 		</sec:authorize>
@@ -55,12 +55,12 @@
 					<div class="col-md-4 pull-left ">
 						<div class="container">
 
-							<%-- 
+							 
 							<c:forEach var="mapEntry" items="${ingredientGrid.categoryMap}" varStatus="row">
 								<label class="form-control-label">${mapEntry.key.name}</label>
 								<c:forEach var="ingredient" items="${mapEntry.value}" varStatus="status">
 									<div class="form-group row checkbox">
-										<form:input  path="ingredientGrid.categoryMap[${mapEntry.key}][${status.index}].selected" />`
+										<form:input  path="categoryMap[${mapEntry.key}][${status.index}]" />  
 										<c:if test="${ingredient.selected}">
 											<input type="checkbox" checked="checked" class="checkbox"
 												value="${ingredient.name}">
@@ -76,8 +76,8 @@
 								</c:forEach>
 
 							</c:forEach>
-							--%>
-
+							
+							<%--
 							<c:forEach var="ingredient" items="${ings}" varStatus="status">
 								<div class="form-group row checkbox">
 									<input type="checkbox" class="checkbox"
@@ -85,6 +85,8 @@
 
 								</div>
 							</c:forEach>
+							
+							--%>
 						</div>
 
 					</div>

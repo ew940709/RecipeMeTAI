@@ -1,11 +1,9 @@
 package pl.edu.agh.tai.hmm;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javax.validation.Valid;
 
@@ -15,7 +13,7 @@ import pl.edu.agh.tai.recipeme.model.Ingredient;
 public class IngredientGrid {
 	
 	@Valid
-	private Map<Category, Set<IngredientSelection>> categoryMap;
+	private Map<Category, List<IngredientSelection>> categoryMap;
 	
 	public IngredientGrid(){
 		categoryMap = new LinkedHashMap<>();
@@ -26,18 +24,18 @@ public class IngredientGrid {
 		setIngredients(ingredients);
 	}
 
-	public Map<Category, Set<IngredientSelection>> getCategoryMap() {
+	public Map<Category, List<IngredientSelection>> getCategoryMap() {
 		return categoryMap;
 	}
 
-	public void setCategoryMap(Map<Category, Set<IngredientSelection>> categoryMap) {
+	public void setCategoryMap(Map<Category, List<IngredientSelection>> categoryMap) {
 		this.categoryMap = categoryMap;
 	}
 	
 	public List<Ingredient> getIngredients(){
-		List<Ingredient> ingredients = new LinkedList<Ingredient>();
+		List<Ingredient> ingredients = new ArrayList<Ingredient>();
 		
-		for(Map.Entry<Category, Set<IngredientSelection>> entry: categoryMap.entrySet()){
+		for(Map.Entry<Category, List<IngredientSelection>> entry: categoryMap.entrySet()){
 
 			for (IngredientSelection is: entry.getValue()){
 				ingredients.add(is.toIngredient());
@@ -48,18 +46,21 @@ public class IngredientGrid {
 	}
 	
 	public void setIngredients(List<Ingredient> ingredients){
+		List<IngredientSelection> iList = null;
 		for (Ingredient ingredient: ingredients){
 			IngredientSelection is = new IngredientSelection(ingredient);
 			
-			Set<IngredientSelection> iSet = null;
+			iList = null;
 			if (categoryMap.containsKey(ingredient.getCategory())){
-				iSet = categoryMap.get(ingredient.getCategory());
+				iList = categoryMap.get(ingredient.getCategory());
 			}else{
-				iSet = new HashSet<IngredientSelection>();
-				categoryMap.put(ingredient.getCategory(), iSet);
+				iList = new ArrayList<IngredientSelection>();
+				categoryMap.put(ingredient.getCategory(), iList);
 			}
-			iSet.add(is);
+			iList.add(is);
 		}
 	}
+	
+
 
 }

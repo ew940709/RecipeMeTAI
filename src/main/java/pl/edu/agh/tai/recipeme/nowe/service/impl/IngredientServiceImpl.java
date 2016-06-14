@@ -10,7 +10,6 @@ import pl.edu.agh.tai.hmm.IngredientGrid;
 import pl.edu.agh.tai.recipeme.dao.generic.IngredientDao;
 import pl.edu.agh.tai.recipeme.model.Ingredient;
 import pl.edu.agh.tai.recipeme.nowe.service.IngredientService;
-import pl.edu.agh.tai.recipeme.web.UserGrid;
 
 @Service("ingredientService")
 public class IngredientServiceImpl implements IngredientService {
