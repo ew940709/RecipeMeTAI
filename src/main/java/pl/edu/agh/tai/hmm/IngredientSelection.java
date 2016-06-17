@@ -35,5 +35,10 @@ public class IngredientSelection extends Ingredient{
 	public void setSelected(boolean selected) {
 		this.selected = selected;
 	}
+	
+	@Override
+	public String toString(){
+		return getId() + "-" + getCategory() + "-" + getName() + "-" + getSelected();
+	}
 }
 

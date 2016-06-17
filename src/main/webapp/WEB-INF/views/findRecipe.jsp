@@ -5,6 +5,7 @@
 	prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@	taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -48,14 +49,14 @@
 	<div class="container loginBox">
 		<h1>Find Recipe</h1>
 
-		<form:form action="" method="POST" modelAttribute="ingredientGrid">
+		<form:form action="" method="POST" modelAttribute="ingredients">
 			<fieldset>
 				<div class="row">
 
 					<div class="col-md-4 pull-left ">
 						<div class="container">
 
-							 
+							<%--						 
 							<c:forEach var="mapEntry" items="${ingredientGrid.categoryMap}" varStatus="row">
 								<label class="form-control-label">${mapEntry.key.name}</label>
 								<c:forEach var="ingredient" items="${mapEntry.value}" varStatus="status">
@@ -76,17 +77,53 @@
 								</c:forEach>
 
 							</c:forEach>
-							
-							<%--
-							<c:forEach var="ingredient" items="${ings}" varStatus="status">
+							--%>
+
+							<p>The length of the ingredients collection is :
+								${fn:length(ingList)}</p>
+
+							<c:forEach var="ingredient" items="${ingredients.ingList}"
+								varStatus="status">
 								<div class="form-group row checkbox">
-									<input type="checkbox" class="checkbox"
-										value="${ingredient.name}"> <span class="c-indicator"></span>${ingredient.name}
+
+									<c:if test="${ingredient.selected}">
+										<form:checkbox path="ingList[${status.index}].selected"
+											checked="checked" />
+										<span class="c-indicator"></span>${ingredient.name }
+									</c:if>
+									<c:if test="${!ingredient.selected}">
+										<label class="c-input c-checkbox"> 
+										<form:checkbox path="ingList[${status.index}].selected" />
+											<span class="c-indicator"></span> ${ingredient.name }
+										</label>
+									</c:if>
 
 								</div>
+
 							</c:forEach>
-							
-							--%>
+
+							<%-- 							<c:forEach var="ingredient" items="${ingList}" varStatus="status"> --%>
+							<!-- 								<div class="form-group row checkbox"> -->
+							<%-- 									<label class="form-control-label">${ingredient.name}</label> --%>
+							<%-- 									<form:input path="ingList[${status.index}].selected" /> --%>
+
+							<%-- 									<c:if test="${ingredient.selected}"> --%>
+							<!-- 										<input type="checkbox" checked="checked" class="checkbox" -->
+							<%-- 											value="${ingredient.name}"> --%>
+							<%-- 										<span class="c-indicator"></span>${ingredient.name } --%>
+							<%-- 									</c:if> --%>
+							<%-- 									<c:if test="${!ingredient.selected}"> --%>
+							<!-- 										<label class="c-input c-checkbox"> <input -->
+							<%-- 											type="checkbox" class="checkbox" value="${ingredient.name}" /><span --%>
+							<%-- 											class="c-indicator"></span> ${ingredient.name } --%>
+							<!-- 										</label> -->
+							<%-- 									</c:if> --%>
+
+							<!-- 								</div> -->
+
+							<%-- 							</c:forEach> --%>
+
+
 						</div>
 
 					</div>
