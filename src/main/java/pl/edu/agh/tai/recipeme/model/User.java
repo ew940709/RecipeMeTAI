@@ -2,7 +2,6 @@ package pl.edu.agh.tai.recipeme.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;

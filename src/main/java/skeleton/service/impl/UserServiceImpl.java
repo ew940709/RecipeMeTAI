@@ -47,4 +47,9 @@ public class UserServiceImpl implements UserService {
 		allUsers.getUserMap().putAll(userGrid.getUserMap());
 		userGrid.setUserMap(allUsers.getUserMap());
 	}
+
+	@Override
+	public User getUserByUsername(String username) {
+		return userDao.findByUserName(username);
+	}
 }

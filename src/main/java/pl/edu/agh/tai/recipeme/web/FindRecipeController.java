@@ -16,7 +16,7 @@ import pl.edu.agh.tai.recipeme.nowe.service.IngredientService;
 
 @Controller
 @RequestMapping(value="/findRecipe")
-public class RecipeController {
+public class FindRecipeController {
 	
 	static final String URL = "/findRecipe";
 	

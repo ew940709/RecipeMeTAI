@@ -12,6 +12,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import pl.edu.agh.tai.hmm.RecipeForm;
+
 @Entity
 @Table(name="recipe")
 public class Recipe {
@@ -28,7 +30,7 @@ public class Recipe {
 	
 	@NotNull
 	@ManyToOne
-	private UserSecured author;
+	private User author;
 	
 	@NotNull
 	private String description;
@@ -44,7 +46,7 @@ public class Recipe {
 	}
 	
 
-	public Recipe(UserSecured author, String description) {
+	public Recipe(User author, String description) {
 		super();
 		this.author = author;
 		this.description = description;
@@ -53,6 +55,25 @@ public class Recipe {
 		this.photos = new LinkedList<>();
 		this.ingredientList = new LinkedList<>();
 	}
+	
+	public Recipe(RecipeForm recipeForm){
+
+		this.author = recipeForm.getAuthor();
+		this.description = recipeForm.getDescription();
+		this.averageRating = 0.0;
+		this.commentList = new LinkedList<>();
+		this.photos = new LinkedList<>();
+		this.ingredientList = new LinkedList<>();
+
+	}
+
+	public void fillIngredientList(List<Ingredient> ingredients) {
+		
+		for (Ingredient i: ingredients){
+			ingredientList.add(i);
+		}
+	}
+
 
 	public Long getId() {
 		return Id;
@@ -78,11 +99,11 @@ public class Recipe {
 		this.photos = photos;
 	}
 
-	public UserSecured getAuthor() {
+	public User getAuthor() {
 		return author;
 	}
 
-	public void setAuthor(UserSecured author) {
+	public void setAuthor(User author) {
 		this.author = author;
 	}
 
