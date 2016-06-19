@@ -26,10 +26,10 @@
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
 			<li><a href="<c:url value='/index' />">Home page </a></li>
-			<li><a class="active" href="<c:url value='/findRecipe' />">Find
-					recipe<span class="sr-only">(current)</span>
+			<li><a  href="<c:url value='/findRecipe' />">Find
+					recipe
 			</a></li>
-			<li><a href="<c:url value='/addRecipe' />">Add recipe</a></li>
+			<li><a class="active" href="<c:url value='/addRecipe' />">Add recipe<span class="sr-only">(current)</span></a></li>
 		</ul>
 
 		<sec:authorize access="isAnonymous()">
@@ -47,9 +47,9 @@
 	</div>
 	</nav>
 	<div class="container loginBox">
-		<h1>Find Recipe</h1>
+		<h1>Add recipe</h1>
 
-		<form:form action="findRecipe" method="POST" commandName="ingredients">
+		<form:form action="addRecipe" method="POST" commandName="recipe">
 			<fieldset>
 				<div class="row">
 
@@ -88,7 +88,7 @@
 				<div class="row">
 					<div class="text-center col-md-4 col-md-offset-4">
 						<input id="logButton" type="submit" class='btn btn-dark btn-lg'
-							value="Find">
+							value="Add">
 					</div>
 
 				</div>
