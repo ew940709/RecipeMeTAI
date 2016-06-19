@@ -44,21 +44,4 @@ public class IngredientList {
 		}
 	}
 	
-	public void updateIngredients(List<Ingredient> ingredients){
-		List<IngredientSelection> newList = new ArrayList<>();
-		
-		if (ingList.size() == ingredients.size()){
-			for (int i = 0; i < ingList.size(); i++){
-				IngredientSelection is = ingList.get(i);
-				is.setId(ingredients.get(i).getId());
-				is.setName(ingredients.get(i).getName());
-				is.setCategory(ingredients.get(i).getCategory());
-				is.setIsApproved(ingredients.get(i).getIsApproved());
-				newList.add(is);
-			}
-			
-			ingList = newList;
-		}
-		
-	}
 }
