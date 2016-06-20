@@ -36,20 +36,7 @@ public class TestController {
 		return "OK";
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/dodaj")
-	public @ResponseBody String persist(){
-		
-		Category category = new Category("przyprawy");
-		category.setId(new Long(2));
-		
-		ingredientService.create(new Ingredient("oregano", category,true));
-		
-		return "OKK";
-	}
-
-
-	@RequestMapping(method = RequestMethod.GET, value = "/addCategories")
-	public @ResponseBody String initCategories(){
+	private String initCategories(){
 		
 		Category c1 = new Category("spices");		
 		Category c2 = new Category("vegetables");		
@@ -70,8 +57,8 @@ public class TestController {
 		return "OKK";
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/addIngredients")
-	public @ResponseBody String initIngredients(){
+
+	private String initIngredients(){
 		List<Ingredient> ingredients = new LinkedList<>();
 		
 		Category c1 = categoryService.get(new Long(1));		
@@ -109,6 +96,13 @@ public class TestController {
 		}
 		
 		
+		return "OKK";
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "/init")
+	public @ResponseBody String initDatabase(){
+		initCategories();
+		initIngredients();
 		return "OKK";
 	}
 

@@ -26,10 +26,10 @@
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
 			<li><a href="<c:url value='/index' />">Home page </a></li>
-			<li><a  href="<c:url value='/findRecipe' />">Find
-					recipe
+			<li><a href="<c:url value='/findRecipe' />">Find recipe </a></li>
+			<li><a class="active" href="<c:url value='/addRecipe' />">Add
+					recipe<span class="sr-only">(current)</span>
 			</a></li>
-			<li><a class="active" href="<c:url value='/addRecipe' />">Add recipe<span class="sr-only">(current)</span></a></li>
 		</ul>
 
 		<sec:authorize access="isAnonymous()">
@@ -56,35 +56,49 @@
 					<div class="col-md-4 pull-left ">
 						<div class="container">
 
-							<c:forEach var="ingredient" items="${recipeForm.selectedIngredients}"
-								varStatus="status">
-								
-								<form:input type="hidden" path="selectedIngredients[${status.index}].name"/>
-								<form:input type="hidden" path="selectedIngredients[${status.index}].category"/>
-								<form:input type="hidden" path="selectedIngredients[${status.index}].category.name"/>
-								<form:input type="hidden" path="selectedIngredients[${status.index}].category.id"/>
-								<form:input type="hidden"  path="selectedIngredients[${status.index}].Id"/>
-								<form:input type="hidden" path="selectedIngredients[${status.index}].isApproved"/>
-								
+							<label>Title</label><br>
+							<form:input path="title" />
+							<br>
+
+							<c:forEach var="ingredient"
+								items="${recipeForm.selectedIngredients}" varStatus="status">
+
+								<form:input type="hidden"
+									path="selectedIngredients[${status.index}].name" />
+								<form:input type="hidden"
+									path="selectedIngredients[${status.index}].category" />
+								<form:input type="hidden"
+									path="selectedIngredients[${status.index}].category.name" />
+								<form:input type="hidden"
+									path="selectedIngredients[${status.index}].category.id" />
+								<form:input type="hidden"
+									path="selectedIngredients[${status.index}].Id" />
+								<form:input type="hidden"
+									path="selectedIngredients[${status.index}].isApproved" />
+
 								<div class="form-group row checkbox">
 									<c:if test="${ingredient.selected}">
-										<form:checkbox path="selectedIngredients[${status.index}].selected"
+										<form:checkbox
+											path="selectedIngredients[${status.index}].selected"
 											checked="checked" />
 										<span class="c-indicator"></span>${ingredient.name }
 									</c:if>
 									<c:if test="${!ingredient.selected}">
-										<label class="c-input c-checkbox"> 
-										<form:checkbox path="selectedIngredients[${status.index}].selected" />
-											<span class="c-indicator"></span> ${ingredient.name }
+										<label class="c-input c-checkbox"> <form:checkbox
+												path="selectedIngredients[${status.index}].selected" /> <span
+											class="c-indicator"></span> ${ingredient.name }
 										</label>
 									</c:if>
 
 								</div>
 
 							</c:forEach>
-							
-							<form:textarea path="description"/>
-							
+
+
+							<label>Description</label><br>
+							<form:textarea path="description" />
+
+
 						</div>
 
 					</div>

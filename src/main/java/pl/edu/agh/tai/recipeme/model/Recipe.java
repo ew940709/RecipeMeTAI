@@ -22,6 +22,9 @@ public class Recipe {
 	@GeneratedValue(strategy = GenerationType.TABLE )
 	private Long Id;
 	
+	@NotNull
+	private String title;
+	
 	@OneToMany
 	private List<Ingredient> ingredientList;
 	
@@ -46,8 +49,9 @@ public class Recipe {
 	}
 	
 
-	public Recipe(User author, String description) {
+	public Recipe(String title, User author, String description) {
 		super();
+		this.title = title;
 		this.author = author;
 		this.description = description;
 		this.averageRating = 0.0;
@@ -58,6 +62,7 @@ public class Recipe {
 	
 	public Recipe(RecipeForm recipeForm){
 
+		this.title = recipeForm.getTitle();
 		this.author = recipeForm.getAuthor();
 		this.description = recipeForm.getDescription();
 		this.averageRating = 0.0;
@@ -110,6 +115,14 @@ public class Recipe {
 	public String getDescription() {
 		return description;
 	}
+	
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
 	public void setDescription(String description) {
 		this.description = description;
@@ -143,4 +156,8 @@ public class Recipe {
 		this.photos.add(photo);
 	}
 	
+	@Override
+	public String toString(){
+		return getId() + "-" + getTitle() + "-" + getDescription() + "-" + getAuthor().getName();
+	}
 }

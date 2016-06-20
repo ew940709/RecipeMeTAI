@@ -70,15 +70,11 @@ public class AddRecipeController {
 	    	}
 	    }
 
-	    
 	    Recipe recipe = new Recipe(recipeForm);
 	    recipe.fillIngredientList(ingredients);
-
 	    Recipe createdRecipe = recipeService.create(recipe);
 	    
-	    
-//	    recipeService.update(createdRecipe);
-	    
+	    System.out.println(createdRecipe);
 	
 		return "OK";
 
