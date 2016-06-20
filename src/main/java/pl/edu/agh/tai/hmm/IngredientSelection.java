@@ -38,7 +38,7 @@ public class IngredientSelection extends Ingredient{
 	
 	@Override
 	public String toString(){
-		return getId() + "-" + getCategory() + "-" + getName() + "-" + getSelected();
+		return getId() + "-" + getCategory().getName() + "-" + getName() + "-" + getSelected();
 	}
 }
 

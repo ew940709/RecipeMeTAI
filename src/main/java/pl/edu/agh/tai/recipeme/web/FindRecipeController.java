@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import pl.edu.agh.tai.hmm.IngredientGrid;
 import pl.edu.agh.tai.hmm.IngredientList;
 import pl.edu.agh.tai.hmm.IngredientSelection;
 import pl.edu.agh.tai.recipeme.model.Ingredient;
@@ -26,26 +27,29 @@ public class FindRecipeController {
 	@RequestMapping(method=RequestMethod.GET)
 	public void findRecipe(Map<String, Object> model) {
 		List<Ingredient> ingredients = ingredientService.getAll();
-		IngredientList ingredientList = new IngredientList();
-		ingredientList.setIngredientList(ingredients);
-		model.put("ingredients",ingredientList);
+		IngredientGrid ingredientGrid = new IngredientGrid();
+		ingredientGrid.setIngredientGrid(ingredients);
+		model.put("ingredientGrid",ingredientGrid);
 
-//		System.out.println("GET: inglist size: " + ingredientList.getIngredientList().size());
-		
-		for (IngredientSelection is: ingredientList.getIngredientList()){
-			System.out.println("GET " + is);
+		for (Map.Entry<String, IngredientList> entry: ingredientGrid.getCategoryMap().entrySet()){
+			System.out.println("CATEGORY: " + entry.getKey());
+			for (IngredientSelection is: entry.getValue().getIngList()){
+				System.out.println("GET " + is);
+			}
 		}
 		
 	}
 	
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String post(@ModelAttribute("ingredients") IngredientList ingredientList, Map<String,Object> model) {
+	public String post(@ModelAttribute("ingredientGrid") IngredientGrid ingredientGrid, Map<String,Object> model) {
 
-		System.out.println("POST: list size: " + ingredientList.getIngredientList().size());
-
-		for (IngredientSelection is: ingredientList.getIngredientList()){
-			System.out.println(is);
+		for (Map.Entry<String, IngredientList> entry: ingredientGrid.getCategoryMap().entrySet()){
+			for (IngredientSelection is: entry.getValue().getIngList()){
+				if(is.getSelected()){
+					System.out.println("POST " + is);
+				}
+			}
 		}
 		
 		return "result";

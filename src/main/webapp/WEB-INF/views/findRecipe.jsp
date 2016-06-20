@@ -49,38 +49,54 @@
 	<div class="container loginBox">
 		<h1>Find Recipe</h1>
 
-		<form:form action="findRecipe" method="POST" commandName="ingredients">
+		<form:form action="findRecipe" method="POST"
+			commandName="ingredientGrid">
 			<fieldset>
 				<div class="row">
 
 					<div class="col-md-4 pull-left ">
 						<div class="container">
 
-							<c:forEach var="ingredient" items="${ingredients.ingList}"
+							<c:forEach var="mapEntry" items="${ingredientGrid.categoryMap}"
 								varStatus="status">
-								
-								<form:input type="hidden" path="ingList[${status.index}].name"/>
-								<form:input type="hidden" path="ingList[${status.index}].category"/>
-								<form:input type="hidden"  path="ingList[${status.index}].Id"/>
-								<form:input type="hidden" path="ingList[${status.index}].isApproved"/>
-								
-								<div class="form-group row checkbox">
-									<c:if test="${ingredient.selected}">
-										<form:checkbox path="ingList[${status.index}].selected"
-											checked="checked" />
-										<span class="c-indicator"></span>${ingredient.name }
-									</c:if>
-									<c:if test="${!ingredient.selected}">
-										<label class="c-input c-checkbox"> 
-										<form:checkbox path="ingList[${status.index}].selected" />
-											<span class="c-indicator"></span> ${ingredient.name }
-										</label>
-									</c:if>
+								<label>${mapEntry.key}</label>
+								<br>
 
-								</div>
+								<c:forEach var="ingredient" items="${mapEntry.value.ingList}"
+									varStatus="status">
+
+									<form:input type="hidden"
+										path="categoryMap[${mapEntry.key}].ingList[${status.index}].name" />
+									<form:input type="hidden"
+										path="categoryMap[${mapEntry.key}].ingList[${status.index}].category" />
+									<form:input type="hidden"
+										path="categoryMap[${mapEntry.key}].ingList[${status.index}].category.name" />
+									<form:input type="hidden"
+										path="categoryMap[${mapEntry.key}].ingList[${status.index}].category.id" />
+									<form:input type="hidden"
+										path="categoryMap[${mapEntry.key}].ingList[${status.index}].Id" />
+									<form:input type="hidden"
+										path="categoryMap[${mapEntry.key}].ingList[${status.index}].isApproved" />
+
+									<div class="form-group row checkbox">
+										<c:if test="${ingredient.selected}">
+											<form:checkbox
+												path="categoryMap[${mapEntry.key}].ingList[${status.index}].selected"
+												checked="checked" />
+											<span class="c-indicator"></span>${ingredient.name }
+									</c:if>
+										<c:if test="${!ingredient.selected}">
+											<label class="c-input c-checkbox"> <form:checkbox
+													path="categoryMap[${mapEntry.key}].ingList[${status.index}].selected" />
+												<span class="c-indicator"></span> ${ingredient.name }
+											</label>
+										</c:if>
+
+									</div>
+
+								</c:forEach>
 
 							</c:forEach>
-
 						</div>
 
 					</div>

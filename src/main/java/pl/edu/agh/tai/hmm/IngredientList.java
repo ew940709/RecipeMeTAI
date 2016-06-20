@@ -16,6 +16,11 @@ public class IngredientList {
 		ingList = new ArrayList<>();
 	}
 
+	public IngredientList(List<Ingredient> ingredients){
+		ingList = new ArrayList<>();
+		setIngredientList(ingredients);
+	}
+	
 	public List<IngredientSelection> getIngList() {
 		return ingList;
 	}
