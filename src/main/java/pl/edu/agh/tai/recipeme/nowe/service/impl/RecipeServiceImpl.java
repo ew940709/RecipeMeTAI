@@ -1,9 +1,12 @@
 package pl.edu.agh.tai.recipeme.nowe.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pl.edu.agh.tai.recipeme.dao.generic.RecipeDao;
+import pl.edu.agh.tai.recipeme.model.Ingredient;
 import pl.edu.agh.tai.recipeme.model.Recipe;
 import pl.edu.agh.tai.recipeme.nowe.service.RecipeService;
 
@@ -32,6 +35,11 @@ public class RecipeServiceImpl implements RecipeService {
 	@Override
 	public Recipe update(Recipe recipe) {
 		return recipeDao.update(recipe);
+	}
+	
+	@Override
+	public List<Recipe> find(List<Ingredient> ingredients){
+		return recipeDao.find(ingredients);
 	}
 
 }

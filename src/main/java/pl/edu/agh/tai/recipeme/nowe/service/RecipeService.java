@@ -1,7 +1,10 @@
 package pl.edu.agh.tai.recipeme.nowe.service;
 
+import java.util.List;
+
 import org.springframework.transaction.annotation.Transactional;
 
+import pl.edu.agh.tai.recipeme.model.Ingredient;
 import pl.edu.agh.tai.recipeme.model.Recipe;
 
 public interface RecipeService {
@@ -17,4 +20,7 @@ public interface RecipeService {
 	
 	@Transactional
 	Recipe update(Recipe recipe);
+	
+	@Transactional
+	List<Recipe> find (List<Ingredient> ingredients);
 }

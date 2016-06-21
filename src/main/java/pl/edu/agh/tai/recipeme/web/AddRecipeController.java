@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import pl.edu.agh.tai.hmm.IngredientList;
-import pl.edu.agh.tai.hmm.IngredientSelection;
-import pl.edu.agh.tai.hmm.RecipeForm;
 import pl.edu.agh.tai.recipeme.model.Ingredient;
 import pl.edu.agh.tai.recipeme.model.Recipe;
 import pl.edu.agh.tai.recipeme.model.User;
 import pl.edu.agh.tai.recipeme.nowe.service.IngredientService;
 import pl.edu.agh.tai.recipeme.nowe.service.RecipeService;
+import pl.edu.agh.tai.recipeme.util.IngredientList;
+import pl.edu.agh.tai.recipeme.util.IngredientSelection;
+import pl.edu.agh.tai.recipeme.util.RecipeForm;
 import skeleton.service.UserService;
 
 @Controller

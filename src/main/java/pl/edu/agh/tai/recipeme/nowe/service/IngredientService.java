@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import pl.edu.agh.tai.hmm.IngredientGrid;
 import pl.edu.agh.tai.recipeme.model.Ingredient;
+import pl.edu.agh.tai.recipeme.util.IngredientGrid;
 
 public interface IngredientService {
 	

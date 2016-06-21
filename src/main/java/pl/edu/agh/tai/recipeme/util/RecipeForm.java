@@ -1,4 +1,4 @@
-package pl.edu.agh.tai.hmm;
+package pl.edu.agh.tai.recipeme.util;
 
 import java.util.HashMap;
 import java.util.List;

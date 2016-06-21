@@ -1,1 +1,2 @@
 - wyszukiwanie przepisu
+- uniemożliwić wyświetlanie odpowiednich widoków niezalogowanemu użytkownikowi

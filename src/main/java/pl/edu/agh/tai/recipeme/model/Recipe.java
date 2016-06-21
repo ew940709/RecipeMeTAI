@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import pl.edu.agh.tai.hmm.RecipeForm;
+import pl.edu.agh.tai.recipeme.util.RecipeForm;
 
 @Entity
 @Table(name="recipe")

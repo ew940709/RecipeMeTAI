@@ -1,4 +1,4 @@
-package pl.edu.agh.tai.hmm;
+package pl.edu.agh.tai.recipeme.util;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

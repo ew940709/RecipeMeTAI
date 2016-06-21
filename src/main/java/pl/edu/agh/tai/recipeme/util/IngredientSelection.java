@@ -1,5 +1,5 @@
 
-package pl.edu.agh.tai.hmm;
+package pl.edu.agh.tai.recipeme.util;
 
 import pl.edu.agh.tai.recipeme.model.Ingredient;
 

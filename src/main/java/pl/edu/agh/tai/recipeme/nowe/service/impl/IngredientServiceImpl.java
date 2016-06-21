@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import pl.edu.agh.tai.hmm.IngredientGrid;
 import pl.edu.agh.tai.recipeme.dao.generic.IngredientDao;
 import pl.edu.agh.tai.recipeme.model.Ingredient;
 import pl.edu.agh.tai.recipeme.nowe.service.IngredientService;
+import pl.edu.agh.tai.recipeme.util.IngredientGrid;
 
 @Service("ingredientService")
 public class IngredientServiceImpl implements IngredientService {
