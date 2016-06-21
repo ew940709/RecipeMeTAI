@@ -60,38 +60,84 @@
 							<form:input path="title" />
 							<br>
 
-							<c:forEach var="ingredient"
-								items="${recipeForm.selectedIngredients}" varStatus="status">
+							<%-- 							<c:forEach var="ingredient" --%>
+							<%-- 								items="${recipeForm.selectedIngredients}" varStatus="status"> --%>
 
-								<form:input type="hidden"
-									path="selectedIngredients[${status.index}].name" />
-								<form:input type="hidden"
-									path="selectedIngredients[${status.index}].category" />
-								<form:input type="hidden"
-									path="selectedIngredients[${status.index}].category.name" />
-								<form:input type="hidden"
-									path="selectedIngredients[${status.index}].category.id" />
-								<form:input type="hidden"
-									path="selectedIngredients[${status.index}].Id" />
-								<form:input type="hidden"
-									path="selectedIngredients[${status.index}].isApproved" />
+							<%-- 								<form:input type="hidden" --%>
+							<%-- 									path="selectedIngredients[${status.index}].name" /> --%>
+							<%-- 								<form:input type="hidden" --%>
+							<%-- 									path="selectedIngredients[${status.index}].category" /> --%>
+							<%-- 								<form:input type="hidden" --%>
+							<%-- 									path="selectedIngredients[${status.index}].category.name" /> --%>
+							<%-- 								<form:input type="hidden" --%>
+							<%-- 									path="selectedIngredients[${status.index}].category.id" /> --%>
+							<%-- 								<form:input type="hidden" --%>
+							<%-- 									path="selectedIngredients[${status.index}].Id" /> --%>
+							<%-- 								<form:input type="hidden" --%>
+							<%-- 									path="selectedIngredients[${status.index}].isApproved" /> --%>
 
-								<div class="form-group row checkbox">
-									<c:if test="${ingredient.selected}">
-										<form:checkbox
-											path="selectedIngredients[${status.index}].selected"
-											checked="checked" />
-										<span class="c-indicator"></span>${ingredient.name }
+							<!-- 								<div class="form-group row checkbox"> -->
+							<%-- 									<c:if test="${ingredient.selected}"> --%>
+							<%-- 										<form:checkbox --%>
+							<%-- 											path="selectedIngredients[${status.index}].selected" --%>
+							<%-- 											checked="checked" /> --%>
+							<%-- 										<span class="c-indicator"></span>${ingredient.name } --%>
+							<%-- 									</c:if> --%>
+							<%-- 									<c:if test="${!ingredient.selected}"> --%>
+							<%-- 										<label class="c-input c-checkbox"> <form:checkbox --%>
+							<%-- 												path="selectedIngredients[${status.index}].selected" /> <span --%>
+							<%-- 											class="c-indicator"></span> ${ingredient.name } --%>
+							<!-- 										</label> -->
+							<%-- 									</c:if> --%>
+
+							<!-- 								</div> -->
+
+							<%-- 							</c:forEach> --%>
+
+							<c:forEach var="mapEntry" items="${recipeForm.selectedIngredients}"
+								varStatus="status">
+								<div class="ingredientContainer panel panel-primary">
+									<div class="panel-heading">
+										<h3 class="panel-title">${mapEntry.key}</h3>
+									</div>
+
+
+									<div class="panel-body ingredient">
+										<c:forEach var="ingredient" items="${mapEntry.value.ingList}"
+											varStatus="status">
+
+											<form:input type="hidden"
+												path="selectedIngredients[${mapEntry.key}].ingList[${status.index}].name" />
+											<form:input type="hidden"
+												path="selectedIngredients[${mapEntry.key}].ingList[${status.index}].category" />
+											<form:input type="hidden"
+												path="selectedIngredients[${mapEntry.key}].ingList[${status.index}].category.name" />
+											<form:input type="hidden"
+												path="selectedIngredients[${mapEntry.key}].ingList[${status.index}].category.id" />
+											<form:input type="hidden"
+												path="selectedIngredients[${mapEntry.key}].ingList[${status.index}].Id" />
+											<form:input type="hidden"
+												path="selectedIngredients[${mapEntry.key}].ingList[${status.index}].isApproved" />
+
+											<div class="form-group row checkbox">
+												<c:if test="${ingredient.selected}">
+													<form:checkbox
+														path="selectedIngredients[${mapEntry.key}].ingList[${status.index}].selected"
+														checked="checked" />
+													<span class="c-indicator"></span>${ingredient.name }
 									</c:if>
-									<c:if test="${!ingredient.selected}">
-										<label class="c-input c-checkbox"> <form:checkbox
-												path="selectedIngredients[${status.index}].selected" /> <span
-											class="c-indicator"></span> ${ingredient.name }
-										</label>
-									</c:if>
+												<c:if test="${!ingredient.selected}">
+													<label class="c-input c-checkbox"> <form:checkbox
+															path="selectedIngredients[${mapEntry.key}].ingList[${status.index}].selected" />
+														<span class="c-indicator"></span> ${ingredient.name }
+													</label>
+												</c:if>
 
+											</div>
+
+										</c:forEach>
+									</div>
 								</div>
-
 							</c:forEach>
 
 

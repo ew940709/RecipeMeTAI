@@ -4,6 +4,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.password.StandardPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,17 +13,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import pl.edu.agh.tai.recipeme.model.Category;
 import pl.edu.agh.tai.recipeme.model.Ingredient;
-import pl.edu.agh.tai.recipeme.model.UserSecured;
 import pl.edu.agh.tai.recipeme.nowe.service.CategoryService;
 import pl.edu.agh.tai.recipeme.nowe.service.IngredientService;
-import pl.edu.agh.tai.recipeme.nowe.service.UserSecuredService;
+import skeleton.service.UserService;
 
 @Controller
-@RequestMapping("/testUsera")
+@RequestMapping("/test")
 public class TestController {
 
 	@Autowired
-	UserSecuredService userService;
+	UserService userService;
 	
 	@Autowired
 	CategoryService categoryService;
@@ -29,10 +30,16 @@ public class TestController {
 	@Autowired
 	IngredientService ingredientService;
 
-	@RequestMapping(method = RequestMethod.GET, value = "/testuj")
-	public @ResponseBody String get() {
+	public String initRoot() {
 
-		userService.create(new UserSecured("Ewa", "passwd", false));
+		UserCommand root = new UserCommand();
+		root.setName("root");
+		PasswordEncoder passwordEncoder = new StandardPasswordEncoder();
+		root.setPassword(passwordEncoder.encode("root"));
+		root.setAddress("root@localhost");
+		root.setEmail("root@localhost");
+		
+		userService.save(root);
 		return "OK";
 	}
 	
@@ -103,6 +110,7 @@ public class TestController {
 	public @ResponseBody String initDatabase(){
 		initCategories();
 		initIngredients();
+		initRoot();
 		return "OKK";
 	}
 
