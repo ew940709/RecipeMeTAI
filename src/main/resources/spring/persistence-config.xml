@@ -11,9 +11,9 @@
 		http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 	<bean id="myDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="driverClassName" value="org.postgresql.Driver" />
 		<property name="url" value="${db.url}" />
-		<property name="username" value="root"/>
+		<property name="username" value="postgres"/>
         <property name="password" value="root"/>
 	</bean>
 	
@@ -24,8 +24,8 @@
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">update</prop>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
 			</props>
 		</property>
 	</bean>
