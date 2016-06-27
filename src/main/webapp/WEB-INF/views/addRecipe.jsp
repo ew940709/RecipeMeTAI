@@ -108,8 +108,11 @@
 
 
 							<label>Description</label><br>
-							<form:textarea path="description" />
+							<form:textarea path="description" /><br>
 
+
+							<label>Photo</label> <br>
+							<form:input type="file" path="photo" size="50"/>
 
 						</div>
 

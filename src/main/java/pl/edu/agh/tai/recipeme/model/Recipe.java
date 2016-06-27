@@ -3,7 +3,6 @@ package pl.edu.agh.tai.recipeme.model;
 import java.util.LinkedList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,7 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -30,9 +28,6 @@ public class Recipe {
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Ingredient> ingredientList;
-	
-	@OneToMany
-	private List<Photo> photos;
 	
 	@NotNull
 	@ManyToOne
@@ -55,7 +50,6 @@ public class Recipe {
 		this.author = author;
 		this.description = description;
 		this.averageRating = 0.0;
-		this.photos = new LinkedList<>();
 		this.ingredientList = new LinkedList<>();
 	}
 	
@@ -65,7 +59,6 @@ public class Recipe {
 		this.author = recipeForm.getAuthor();
 		this.description = recipeForm.getDescription();
 		this.averageRating = 0.0;
-		this.photos = new LinkedList<>();
 		this.ingredientList = new LinkedList<>();
 
 	}
@@ -92,14 +85,6 @@ public class Recipe {
 
 	public void setIngredientList(List<Ingredient> ingredientList) {
 		this.ingredientList = ingredientList;
-	}
-
-	public List<Photo> getPhotos() {
-		return photos;
-	}
-
-	public void setPhotos(List<Photo> photos) {
-		this.photos = photos;
 	}
 
 	public User getAuthor() {
@@ -137,11 +122,7 @@ public class Recipe {
 	public void addIngredient(Ingredient ingredient){
 		this.ingredientList.add(ingredient);
 	}
-	
-	public void addPhoto (Photo photo){
-		this.photos.add(photo);
-	}
-	
+
 	@Override
 	public String toString(){
 		return getId() + "-" + getTitle() + "-" + getDescription() + "-" + getAuthor().getName();

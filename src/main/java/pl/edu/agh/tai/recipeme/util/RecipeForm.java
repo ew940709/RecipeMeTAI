@@ -14,6 +14,8 @@ public class RecipeForm extends Recipe{
 	@Valid
 	private Map<String, IngredientList> selectedIngredients;
 	
+	private byte[] photo;
+	
 	public RecipeForm(){
 //		selectedIngredients = new ArrayList<>();
 		selectedIngredients = new HashMap<>();
@@ -47,5 +49,15 @@ public class RecipeForm extends Recipe{
 			iList.getIngList().add(new IngredientSelection(ingredient));
 		}
 	}
+
+	public byte[] getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(byte[] photo) {
+		this.photo = photo;
+	}
+	
+	
 
 }

@@ -76,12 +76,14 @@
 			</c:forEach>
 		</div>
 		
-		
+	
+	<sec:authorize access="isAuthenticated()">
 		<form:form action="addComment" method="POST" commandName="commentForm">
 			<form:input type="hidden" path="recipeId" value="${recipe.id}"/>
 			<form:textarea path="content"/>			
 			<button class="commentButton" type="submit">Add</button>
 		</form:form>
+	</sec:authorize>
 	</div>
 	
 	

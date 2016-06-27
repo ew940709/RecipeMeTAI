@@ -12,7 +12,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import pl.edu.agh.tai.recipeme.model.Ingredient;
 import pl.edu.agh.tai.recipeme.model.Recipe;
@@ -48,7 +47,7 @@ public class AddRecipeController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public @ResponseBody String post(@ModelAttribute("recipeForm") RecipeForm recipeForm, Map<String, Object> model) {
+	public  String post(@ModelAttribute("recipeForm") RecipeForm recipeForm, Map<String, Object> model) {
 
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String username = auth.getName();
@@ -68,7 +67,7 @@ public class AddRecipeController {
 		recipe.fillIngredientList(ingredients);
 		Recipe createdRecipe = recipeService.create(recipe);
 		
-		return "OK";
+		return "redirect:/recipeDetails?Id="+createdRecipe.getId();
 
 	}
 

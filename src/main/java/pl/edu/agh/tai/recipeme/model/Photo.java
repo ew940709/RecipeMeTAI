@@ -30,17 +30,21 @@ public class Photo {
 	
 	@NotNull
 	private String description;
+	
+	@NotNull
+	private Long recipeId;
 
 	public Photo(){
 		
 	}
 	
-	public Photo(UserSecured author, Date date, byte[] content, String description) {
+	public Photo(UserSecured author, Date date, byte[] content, String description, Long recipeId) {
 		super();
 		this.author = author;
 		this.date = date;
 		this.content = content;
 		this.description = description;
+		this.recipeId = recipeId;
 	}
 
 	public Long getId() {
@@ -82,6 +86,13 @@ public class Photo {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
+	public Long getRecipeId() {
+		return recipeId;
+	}
+
+	public void setRecipeId(Long recipeId) {
+		this.recipeId = recipeId;
+	}
 	
 }
