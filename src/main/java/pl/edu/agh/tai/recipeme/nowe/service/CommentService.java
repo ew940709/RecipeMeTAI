@@ -1,5 +1,7 @@
 package pl.edu.agh.tai.recipeme.nowe.service;
 
+import java.util.List;
+
 import org.springframework.transaction.annotation.Transactional;
 
 import pl.edu.agh.tai.recipeme.model.Comment;
@@ -17,4 +19,7 @@ public interface CommentService {
 	
 	@Transactional
 	Comment update(Comment category);
+	
+	@Transactional
+	List<Comment> getComments(Long recipeId);
 }

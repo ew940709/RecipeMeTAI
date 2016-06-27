@@ -15,12 +15,12 @@ import javax.validation.constraints.NotNull;
 public class Comment {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
 	
 	@NotNull
 	@ManyToOne
-	private UserSecured author;
+	private User author;
 	
 	@NotNull
 	private String content;
@@ -29,17 +29,21 @@ public class Comment {
 	
 	@NotNull
 	private Date date;
+	
+	@NotNull
+	private Long recipeId;
 
 	public Comment(){
 		
 	}
 	
-	public Comment(UserSecured author, String content,  Date date) {
+	public Comment(User author, String content,  Date date, Long recipeId) {
 		super();
 		this.author = author;
 		this.content = content;
 		this.rating = 0;
 		this.date = date;
+		this.recipeId = recipeId;
 	}
 
 	public Long getId() {
@@ -50,11 +54,11 @@ public class Comment {
 		Id = id;
 	}
 
-	public UserSecured getAuthor() {
+	public User getAuthor() {
 		return author;
 	}
 
-	public void setAuthor(UserSecured author) {
+	public void setAuthor(User author) {
 		this.author = author;
 	}
 
@@ -80,6 +84,14 @@ public class Comment {
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	public Long getRecipeId() {
+		return recipeId;
+	}
+
+	public void setRecipeId(Long recipeId) {
+		this.recipeId = recipeId;
 	}
 	
 }

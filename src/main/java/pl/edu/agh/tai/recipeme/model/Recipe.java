@@ -3,6 +3,7 @@ package pl.edu.agh.tai.recipeme.model;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -21,7 +22,7 @@ import pl.edu.agh.tai.recipeme.util.RecipeForm;
 public class Recipe {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.TABLE )
+	@GeneratedValue(strategy = GenerationType.IDENTITY )
 	private Long Id;
 	
 	@NotNull
@@ -40,9 +41,6 @@ public class Recipe {
 	@NotNull
 	private String description;
 	
-	@OneToMany
-	private List<Comment> commentList;
-	
 	private Double averageRating;
 	
 	
@@ -57,7 +55,6 @@ public class Recipe {
 		this.author = author;
 		this.description = description;
 		this.averageRating = 0.0;
-		this.commentList = new LinkedList<>();
 		this.photos = new LinkedList<>();
 		this.ingredientList = new LinkedList<>();
 	}
@@ -68,7 +65,6 @@ public class Recipe {
 		this.author = recipeForm.getAuthor();
 		this.description = recipeForm.getDescription();
 		this.averageRating = 0.0;
-		this.commentList = new LinkedList<>();
 		this.photos = new LinkedList<>();
 		this.ingredientList = new LinkedList<>();
 
@@ -130,14 +126,6 @@ public class Recipe {
 		this.description = description;
 	}
 
-	public List<Comment> getCommentList() {
-		return commentList;
-	}
-
-	public void setCommentList(List<Comment> commentList) {
-		this.commentList = commentList;
-	}
-
 	public Double getAverageRating() {
 		return averageRating;
 	}
@@ -148,10 +136,6 @@ public class Recipe {
 	
 	public void addIngredient(Ingredient ingredient){
 		this.ingredientList.add(ingredient);
-	}
-	
-	public void addComment (Comment comment){
-		this.commentList.add(comment);
 	}
 	
 	public void addPhoto (Photo photo){

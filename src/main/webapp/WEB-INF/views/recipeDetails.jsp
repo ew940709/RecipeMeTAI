@@ -65,7 +65,25 @@
 		<div class="container">
 			${recipe.description}
 		</div>
+		
+		<div class="row container">
+			<c:forEach var="comment" items="${commentList }">
+				<div class="comment">
+					${comment.content}
+					${comment.author.name}
+					${comment.date }
+				</div>
+			</c:forEach>
+		</div>
+		
+		
+		<form:form action="addComment" method="POST" commandName="commentForm">
+			<form:input type="hidden" path="recipeId" value="${recipe.id}"/>
+			<form:textarea path="content"/>			
+			<button class="commentButton" type="submit">Add</button>
+		</form:form>
 	</div>
+	
 	
 	<div id="footer" class="">
 		<div class="container">

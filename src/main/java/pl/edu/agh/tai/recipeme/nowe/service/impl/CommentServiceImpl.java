@@ -1,5 +1,7 @@
 package pl.edu.agh.tai.recipeme.nowe.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,4 +36,8 @@ public class CommentServiceImpl implements CommentService{
 		return commentDao.update(comment);
 	}
 
+	@Override
+	public List<Comment> getComments(Long recipeId){
+		return commentDao.getComments(recipeId);
+	}
 }
