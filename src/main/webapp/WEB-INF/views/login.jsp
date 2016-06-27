@@ -33,7 +33,7 @@
    			</sec:authorize>
    			<sec:authorize access="isAuthenticated()">
 		  		<ul class="nav navbar-nav navbar-right navMargin">
-				      <li><a href="<c:url value="/j_spring_security_logout" />""> Logout</a></li>
+				      <li><a href="<c:url value="/j_spring_security_logout" />"> Logout</a></li>
 	   			</ul>
    			</sec:authorize>
 	  	</div>

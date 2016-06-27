@@ -11,6 +11,7 @@
  		<security:form-login login-page="/login" authentication-failure-url="/login?failed"  />
 		<security:logout />
  		<security:intercept-url pattern="/secret" access="ROLE_ADMIN" />
+ 		<security:intercept-url pattern="/addRecipe" access="ROLE_ADMIN" />
 	</security:http>
 
 </beans>
