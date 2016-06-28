@@ -134,3 +134,23 @@ body {
 	margin-left: 10px;
 }
 
+
+.title-input {
+	width:90%;
+	margin-left:10px;
+	margin-rigth:10px;
+	display:block;
+	
+}
+
+.description-box{
+	width:90%;	
+	margin-left:10px;
+	margin-rigth:10px;
+	display:block;
+	height:200px;
+}
+
+
+}
+

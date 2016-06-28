@@ -55,11 +55,17 @@
 
 					<div class="col-md-4 pull-left ">
 						<div class="container">
-
-							<label>Title</label><br>
-							<form:input path="title" />
-							<br>
-
+						<fieldset class="fieldcontainer">
+							<div class="field">
+								<label>Title</label><br>
+								<form:input class="form-control title-input" placeholder="Enter title" path="title" />
+							</div>
+							
+							<div class="field">
+								<label>Photo</label> <br>
+								<form:input type="file" path="photo" size="50"/>
+							</div>
+							
 							<c:forEach var="mapEntry" items="${recipeForm.selectedIngredients}"
 								varStatus="status">
 								<div class="ingredientContainer panel panel-primary">
@@ -106,14 +112,14 @@
 								</div>
 							</c:forEach>
 
+							<div class="field">
+								<label>Description</label><br>
+								<form:textarea class="form-control description-box" path="description" /><br>
+							</div>
+							
+							
 
-							<label>Description</label><br>
-							<form:textarea path="description" /><br>
-
-
-							<label>Photo</label> <br>
-							<form:input type="file" path="photo" size="50"/>
-
+						</fieldset>
 						</div>
 
 					</div>
