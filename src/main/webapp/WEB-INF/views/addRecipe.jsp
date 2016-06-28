@@ -49,7 +49,8 @@
 	<div class="container loginBox">
 		<h1>Add recipe</h1>
 
-		<form:form class="form-horizontal" action="addRecipe" method="POST" commandName="recipeForm" role="form">
+		<form:form class="form-horizontal" action="addRecipe" method="POST"
+			commandName="recipeForm" role="form">
 			<fieldset>
 				<div class="row">
 
@@ -57,66 +58,74 @@
 						<div class="container">
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="title">Title</label>
-								<form:input class="form-control col-sm-8" placeholder="Enter title" path="title" />
+								<form:input class="form-control col-sm-8"
+									placeholder="Enter title" path="title" />
 							</div>
-								
+
 							<div class="form-group">
-								<label class="control-label col-sm-2" for="photo">Photo</label> 
-								<form:input class="col-sm-8" type="file" path="photo" size="50"/>
+								<label class="control-label col-sm-2" for="photo">Photo</label>
+								<form:input class="col-sm-8" type="file" path="photo" size="50" />
 							</div>
-								
-							
-							<c:forEach var="mapEntry" items="${recipeForm.selectedIngredients}"
-								varStatus="status">
-								<div class="ingredientContainer panel panel-primary">
-									<div class="panel-heading">
-										<h3 class="panel-title">${mapEntry.key}</h3>
-									</div>
 
+							<div class="panel-group">
 
-									<div class="panel-body ingredient">
-										<c:forEach var="ingredient" items="${mapEntry.value.ingList}"
-											varStatus="status">
+								<c:forEach var="mapEntry"
+									items="${recipeForm.selectedIngredients}" varStatus="status">
+									<div class="panel panel-primary">
+										<div class="panel-heading">
+											<h3 class="panel-title">
+												<a data-toggle="collapse" data-target="#"${mapEntry.key}
+													href="#"${mapEntry.key}> ${mapEntry.key} </a>
+											</h3>
+										</div>
 
-											<form:input type="hidden"
-												path="selectedIngredients[${mapEntry.key}].ingList[${status.index}].name" />
-											<form:input type="hidden"
-												path="selectedIngredients[${mapEntry.key}].ingList[${status.index}].category" />
-											<form:input type="hidden"
-												path="selectedIngredients[${mapEntry.key}].ingList[${status.index}].category.name" />
-											<form:input type="hidden"
-												path="selectedIngredients[${mapEntry.key}].ingList[${status.index}].category.id" />
-											<form:input type="hidden"
-												path="selectedIngredients[${mapEntry.key}].ingList[${status.index}].Id" />
-											<form:input type="hidden"
-												path="selectedIngredients[${mapEntry.key}].ingList[${status.index}].isApproved" />
+										<div class="panel-collapse collapse in">
+											<div class="panel-body ingredient">
+												<c:forEach var="ingredient"
+													items="${mapEntry.value.ingList}" varStatus="status">
 
-											<div class="form-group row checkbox">
-												<c:if test="${ingredient.selected}">
-													<form:checkbox
-														path="selectedIngredients[${mapEntry.key}].ingList[${status.index}].selected"
-														checked="checked" />
-													<span class="c-indicator"></span>${ingredient.name }
+													<form:input type="hidden"
+														path="selectedIngredients[${mapEntry.key}].ingList[${status.index}].name" />
+													<form:input type="hidden"
+														path="selectedIngredients[${mapEntry.key}].ingList[${status.index}].category" />
+													<form:input type="hidden"
+														path="selectedIngredients[${mapEntry.key}].ingList[${status.index}].category.name" />
+													<form:input type="hidden"
+														path="selectedIngredients[${mapEntry.key}].ingList[${status.index}].category.id" />
+													<form:input type="hidden"
+														path="selectedIngredients[${mapEntry.key}].ingList[${status.index}].Id" />
+													<form:input type="hidden"
+														path="selectedIngredients[${mapEntry.key}].ingList[${status.index}].isApproved" />
+
+													<div class="form-group row checkbox">
+														<c:if test="${ingredient.selected}">
+															<form:checkbox
+																path="selectedIngredients[${mapEntry.key}].ingList[${status.index}].selected"
+																checked="checked" />
+															<span class="c-indicator"></span>${ingredient.name }
 									</c:if>
-												<c:if test="${!ingredient.selected}">
-													<label class="c-input c-checkbox"> <form:checkbox
-															path="selectedIngredients[${mapEntry.key}].ingList[${status.index}].selected" />
-														<span class="c-indicator"></span> ${ingredient.name }
-													</label>
-												</c:if>
+														<c:if test="${!ingredient.selected}">
+															<label class="c-input c-checkbox"> <form:checkbox
+																	path="selectedIngredients[${mapEntry.key}].ingList[${status.index}].selected" />
+																<span class="c-indicator"></span> ${ingredient.name }
+															</label>
+														</c:if>
 
+													</div>
+
+												</c:forEach>
 											</div>
-
-										</c:forEach>
+										</div>
 									</div>
-								</div>
-							</c:forEach>
+								</c:forEach>
+
+							</div>
 
 							<div class="form-group">
-								<label class="control-label col-sm-2" for="descripion" >Description</label>
+								<label class="control-label col-sm-2" for="descripion">Description</label>
 								<form:textarea class="form-control col-sm-8" path="description" />
 							</div>
-								
+
 						</div>
 
 					</div>
