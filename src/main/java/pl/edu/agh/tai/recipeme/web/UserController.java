@@ -25,7 +25,6 @@ public class UserController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public void get(Model model, @ModelAttribute UserCommand userCommand) {
-		model.addAttribute("userGrid", userService.findAll());
 		model.addAttribute("registration", false);
 	}
 	
