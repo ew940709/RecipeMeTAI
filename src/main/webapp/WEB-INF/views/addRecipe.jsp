@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="<c:url value='/styles/bootstrap.min.css'/>">
 <link rel="stylesheet"
 	href="<c:url value='/styles/bootstrap-theme.css'/>">
+	 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 
 <body>
