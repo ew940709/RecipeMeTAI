@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="<c:url value='/styles/bootstrap.min.css'/>">
 <link rel="stylesheet"
 	href="<c:url value='/styles/bootstrap-theme.css'/>">
+<link rel="stylesheet" href="<c:url value='/styles/font-awesome.min.css'/>">
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="<c:url value='/scripts/lib/bootstrap.min.js'/>"></script>
 </head>
@@ -82,7 +83,7 @@
 											</h3>
 										</div>
 
-										<div id="${mapEntry.key}" class="panel-collapse collapse in">
+										<div id="${mapEntry.key}" class="panel-collapse collapse">
 											<div class="panel-body ingredient">
 												<c:forEach var="ingredient"
 													items="${mapEntry.value.ingList}" varStatus="status">
