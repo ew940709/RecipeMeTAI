@@ -15,7 +15,8 @@
 <link rel="stylesheet" href="<c:url value='/styles/bootstrap.min.css'/>">
 <link rel="stylesheet"
 	href="<c:url value='/styles/bootstrap-theme.css'/>">
-	 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="<c:url value='/scripts/lib/bootstrap.min.js'/>"></script>
 </head>
 
 <body>
@@ -68,7 +69,7 @@
 								<form:input class="col-sm-8" type="file" path="photo" size="50" />
 							</div>
 
-							<div class="panel-group">
+							<div class="panel-group" id="accordion">
 
 								<c:forEach var="mapEntry"
 									items="${recipeForm.selectedIngredients}" varStatus="status">
@@ -76,7 +77,8 @@
 										<div class="panel-heading">
 											<h3 class="panel-title">
 												<a data-toggle="collapse" data-target="#${mapEntry.key}"
-													href="#${mapEntry.key}" class="collapsed"> ${mapEntry.key} </a>
+													href="#${mapEntry.key}" class="collapsed">
+													${mapEntry.key} </a>
 											</h3>
 										</div>
 
