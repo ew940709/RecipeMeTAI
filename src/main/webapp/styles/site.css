@@ -135,19 +135,7 @@ body {
 }
 
 
-.title-input {
-	width:90%;
-	margin-left:10px;
-	margin-rigth:10px;
-	display:block;
-	
-}
-
-.description-box{
-	width:90%;	
-	margin-left:10px;
-	margin-rigth:10px;
-	display:block;
+.#description{
 	height:200px;
 }
 

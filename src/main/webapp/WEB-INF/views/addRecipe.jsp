@@ -57,12 +57,12 @@
 						<div class="container">
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="title">Title</label><br>
-								<form:input class="form-control title-input" placeholder="Enter title" path="title" />
+								<form:input class="form-control col-sm-10" placeholder="Enter title" path="title" />
 							</div>
 								
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="photo">Photo</label> <br>
-								<form:input class="form-control" type="file" path="photo" size="50"/>
+								<form:input class="col-sm-8" type="file" path="photo" size="50"/>
 							</div>
 								
 							
@@ -114,7 +114,7 @@
 
 							<div class="form-group">
 								<label class="control-label col-sm-2" for="descripion" >Description</label><br>
-								<form:textarea class="form-control" path="description" /><br>
+								<form:textarea class="form-control col-sm-10" path="description" /><br>
 							</div>
 								
 						</div>
