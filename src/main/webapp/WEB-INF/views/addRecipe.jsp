@@ -55,16 +55,12 @@
 
 					<div class="col-md-4 pull-left ">
 						<div class="container">
-						<fieldset class="fieldcontainer">
-							<div class="field">
+
 								<label>Title</label><br>
 								<form:input class="form-control title-input" placeholder="Enter title" path="title" />
-							</div>
 							
-							<div class="field">
 								<label>Photo</label> <br>
 								<form:input type="file" path="photo" size="50"/>
-							</div>
 							
 							<c:forEach var="mapEntry" items="${recipeForm.selectedIngredients}"
 								varStatus="status">
@@ -112,14 +108,12 @@
 								</div>
 							</c:forEach>
 
-							<div class="field">
+	
 								<label>Description</label><br>
 								<form:textarea class="form-control description-box" path="description" /><br>
-							</div>
 							
 							
 
-						</fieldset>
 						</div>
 
 					</div>
