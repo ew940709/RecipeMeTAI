@@ -15,6 +15,10 @@
 <link rel="stylesheet" href="<c:url value='/styles/bootstrap.min.css'/>">
 <link rel="stylesheet"
 	href="<c:url value='/styles/bootstrap-theme.css'/>">
+<link rel="stylesheet"
+	href="<c:url value='/styles/font-awesome.min.css'/>">
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="<c:url value='/scripts/lib/bootstrap.min.js'/>"></script>
 </head>
 
 <body>
@@ -46,47 +50,86 @@
 		</sec:authorize>
 	</div>
 	</nav>
-	
-	<div class="container loginBox">
+
+	<div id="form-box" class="container">
+
+		<span class="post-attr">Posted by: ${recipe.author.name} </span>
+		<h2>
+			<span class="rating label label-primary">${recipe.averageRating }</span>
+		</h2>
+
+
 		<h1>${recipe.title}</h1>
-		${recipe.author.name}
-		${recipe.averageRating }
-		<div class="panel primary-panel">
-			<div class="panel-heading">
-				Ingredients
-			</div>
-			<div class="panel-body">
-				<c:forEach	var="ingredient" items="${recipe.ingredientList}">
+
+		<hr class="" />
+		<div class="row">
+
+			<div class="container col-md-4 pull-right">
+
+				<div class="panel panel-default ">
+					<div class="panel-body">
+						<h3>Ingredients:</h3>
+						<c:forEach var="ingredient" items="${recipe.ingredientList}">
 					${ingredient.name}										
 				</c:forEach>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="container col-md-12">
+
+				<div class="panel panel-default ">
+
+					<div class="panel-body">
+						<h3>Method:</h3>${recipe.description}</div>
+				</div>
+
 			</div>
 		</div>
-		
-		<div class="container">
-			${recipe.description}
-		</div>
-		
+
+
+
+
+		<hr class="" />
+
 		<div class="row container">
+			<h4><b>Comment list</b></h4>
 			<c:forEach var="comment" items="${commentList }">
-				<div class="comment">
-					${comment.content}
-					${comment.author.name}
-					${comment.date }
+				<div class="row">
+					<div class="container col-md-7">${comment.content}<span
+							class="post-attr"> ${comment.author.name} ${comment.date }</span>
+							<hr />
+					</div>
+
 				</div>
+
+
 			</c:forEach>
 		</div>
-		
-	
-	<sec:authorize access="isAuthenticated()">
-		<form:form action="addComment" method="POST" commandName="commentForm">
-			<form:input type="hidden" path="recipeId" value="${recipe.id}"/>
-			<form:textarea path="content"/>			
-			<button class="commentButton" type="submit">Add</button>
-		</form:form>
-	</sec:authorize>
+
+
+		<sec:authorize access="isAuthenticated()">
+			<div class="row">
+				<h4 id="commentH">Add comment</h4>
+				<div class="col-md-12">
+					<form:form action="addComment" method="POST"
+						commandName="commentForm">
+						<form:input type="hidden" path="recipeId" value="${recipe.id}" />
+						<form:textarea class="form-control" path="content" />
+						<div class="commentButton">
+							<button class="btn btn-default commentButton pull-right"
+								type="submit">Add</button>
+						</div>
+					</form:form>
+				</div>
+
+			</div>
+
+		</sec:authorize>
 	</div>
-	
-	
+
+
 	<div id="footer" class="">
 		<div class="container">
 			<div class="row text-center footerText">
@@ -97,5 +140,5 @@
 
 		</div>
 	</div>
-	</body>
-	</html>
+</body>
+</html>
