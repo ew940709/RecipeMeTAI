@@ -74,12 +74,12 @@
 									<div class="panel panel-primary">
 										<div class="panel-heading">
 											<h3 class="panel-title">
-												<a data-toggle="collapse" data-target="#"${mapEntry.key}
-													href="#"${mapEntry.key}> ${mapEntry.key} </a>
+												<a data-toggle="collapse" data-target="#${mapEntry.key}"
+													href="#${mapEntry.key}"> ${mapEntry.key} </a>
 											</h3>
 										</div>
 
-										<div class="panel-collapse collapse in">
+										<div id="${mapEntry.key}" class="panel-collapse collapse in">
 											<div class="panel-body ingredient">
 												<c:forEach var="ingredient"
 													items="${mapEntry.value.ingList}" varStatus="status">
