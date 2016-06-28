@@ -75,7 +75,7 @@
 										<div class="panel-heading">
 											<h3 class="panel-title">
 												<a data-toggle="collapse" data-target="#${mapEntry.key}"
-													href="#${mapEntry.key}"> ${mapEntry.key} </a>
+													href="#${mapEntry.key}" class="collapsed"> ${mapEntry.key} </a>
 											</h3>
 										</div>
 
