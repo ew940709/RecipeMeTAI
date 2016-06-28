@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class helloWorldController {
+public class HelloWorldController {
 	
 	@RequestMapping( value = "/helloWorld", method=RequestMethod.GET)
 	public void secret(ModelMap model) {

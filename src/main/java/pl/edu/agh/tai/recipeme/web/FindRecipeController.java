@@ -18,6 +18,7 @@ import pl.edu.agh.tai.recipeme.nowe.service.RecipeService;
 import pl.edu.agh.tai.recipeme.util.IngredientGrid;
 import pl.edu.agh.tai.recipeme.util.IngredientList;
 import pl.edu.agh.tai.recipeme.util.IngredientSelection;
+import pl.edu.agh.tai.recipeme.util.RecipeMatch;
 
 @Controller
 @RequestMapping(value = "/findRecipe")
@@ -66,11 +67,20 @@ public class FindRecipeController {
 		for (Recipe recipe : foundRecipes) {
 			System.out.println(recipe);
 		}
-
+		List<RecipeMatch> foundRecipesInfo = getMatchingIngredientsInfo(foundRecipes, ingredients);
 		
-		redirectAttributes.addFlashAttribute("foundRecipes", foundRecipes);
+		redirectAttributes.addFlashAttribute("foundRecipes", foundRecipesInfo);
 		return "redirect:" + URL;
 
 	}
 
+	private List<RecipeMatch> getMatchingIngredientsInfo(List<Recipe> foundRecipes, List<Ingredient> requestedIngredients){
+		List<RecipeMatch> recipeMatches = new LinkedList<>();
+		
+		for(Recipe recipe: foundRecipes){
+			recipeMatches.add(new RecipeMatch(recipe, requestedIngredients));
+		}
+			
+		return recipeMatches;
+	}
 }

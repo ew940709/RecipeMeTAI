@@ -89,49 +89,6 @@
 		</div>		
 		</c:if>
 	</div>
-	
-	<!-- 
-	<div class="container">
-		<form:form action="" method="put" modelAttribute="userGrid">
-			<table>
-				<thead><tr><th><input type="checkbox" class="toggleAll" /></th><th>Name</th><th>Password</th><th>Email</th><th>Address</th></tr></thead>
-				<tbody>
-					<c:forEach var="userEntry" items="${userGrid.userMap}" varStatus="row">
-						<tr>
-							<td>
-								<form:input cssClass="disablable-hidden" disabled="${!userEntry.value.selected}" path="userMap[${userEntry.key}].id" />
-								<c:if test="${userMap[userEntry.key].selected}">
-									<input type="checkbox" checked="checked" class="rowSelector" />
-								</c:if>
-								<c:if test="${!userMap[userEntry.key].selected}">
-									<input type="checkbox" class="rowSelector" />
-								</c:if>
-							</td>
-							<td>
-								<form:errors path="userMap[${userEntry.key}].name" cssClass="errors" />
-								<form:input disabled="${!userEntry.value.selected}" path="userMap[${userEntry.key}].name" />
-							</td>
-							<td>
-								<form:errors path="userMap[${userEntry.key}].password" cssClass="errors" />
-								<form:input disabled="${!userEntry.value.selected}" path="userMap[${userEntry.key}].password" />
-							</td>
-							<td>
-								<form:errors path="userMap[${userEntry.key}].email" cssClass="errors" />
-								<form:input disabled="${!userEntry.value.selected}" path="userMap[${userEntry.key}].email" />
-							</td>
-							<td>
-								<form:errors path="userMap[${userEntry.key}].address" cssClass="errors" />
-								<form:input disabled="${!userEntry.value.selected}" path="userMap[${userEntry.key}].address" />
-							</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-			<p>
-				<input type="submit" value="Update all enabled users">
-			</p>
-		</form:form>
-		 -->
 		 
 		 <div id="footer" class="">
 		    <div class="container">

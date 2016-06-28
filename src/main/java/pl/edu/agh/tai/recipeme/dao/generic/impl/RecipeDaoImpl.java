@@ -19,7 +19,7 @@ public class RecipeDaoImpl extends GenericDaoImpl<Recipe> implements RecipeDao{
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Recipe> find(List<Ingredient> ingredients) {
-//		return (T) sessionFactory.getCurrentSession().get(type, (Serializable) id);
+
 		List<Recipe> resultList = new LinkedList<>();
 		List<Long> ids = new LinkedList<>();
 		for (Ingredient i: ingredients){

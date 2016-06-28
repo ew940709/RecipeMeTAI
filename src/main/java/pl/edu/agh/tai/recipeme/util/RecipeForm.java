@@ -17,7 +17,6 @@ public class RecipeForm extends Recipe{
 	private byte[] photo;
 	
 	public RecipeForm(){
-//		selectedIngredients = new ArrayList<>();
 		selectedIngredients = new HashMap<>();
 	}
 

@@ -60,31 +60,41 @@
 							</c:url>
 						</c:set>
 						<h2>
-							<a href="<c:url value="${recipeURL}"/>">${recipe.title}</a> </h2>
+							<a href="<c:url value="${recipeURL}"/>">${recipe.title}</a>
+						</h2>
+					</div>
+					<div class="panel-body">
+						<c:forEach var="ingredient" items="${recipe.ingredientMatches}">
+							<label>${ingredient.ingredientName}</label>
+							<c:if test="${ingredient.matching}">
+								<p>zgadza sie</p><br>
+									</c:if>
+							<c:if test="${!ingredient.matching}">
+								<p>nie zgadza sie</p><br>
+							</c:if>
+						</c:forEach>
+
+					</div>
+				</div>
+
+
 			</div>
-			<div class="panel-body">
-				
-			</div>
-		</div>
-			
-			
-		</div>
-	</c:forEach>
-								
-								
-	
-		
+		</c:forEach>
+
+
+
+
 	</div>
-	
+
 	<div id="footer" class="">
-	    <div class="container">
-	   	 <div class="row text-center footerText">
-	   		<div class="col-sm-3 pull-right">
-	   			<p>RecipeMe 2016</p>
-	   		</div>
-	    </div>
-	    </div>
+		<div class="container">
+			<div class="row text-center footerText">
+				<div class="col-sm-3 pull-right">
+					<p>RecipeMe 2016</p>
+				</div>
+			</div>
+		</div>
 	</div>
-		
-	</body>
+
+</body>
 </html>

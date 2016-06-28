@@ -9,15 +9,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import pl.edu.agh.tai.recipeme.model.Recipe;
+import pl.edu.agh.tai.recipeme.util.RecipeMatch;
 
 @Controller
 @RequestMapping(value="/requestedRecipes")
 public class RequestedRecipesController {
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public void listRequestedRecipes(Map<String, Object> model, @ModelAttribute("foundRecipes") Object foundRecipes) {
+	public void listRequestedRecipes(Map<String, Object> model, @ModelAttribute("foundRecipes") Object foundRecipesInfo) {
 		
-		List<Recipe> listOfRecipes = (List<Recipe>) foundRecipes;
+		List<RecipeMatch> listOfRecipes = (List<RecipeMatch>) foundRecipesInfo;
 		System.out.println("foundRecipes " + (listOfRecipes).size());
 		
 		for(Recipe r : listOfRecipes){

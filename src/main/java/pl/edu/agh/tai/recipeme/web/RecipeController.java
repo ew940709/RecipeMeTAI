@@ -37,19 +37,18 @@ public class RecipeController {
 	
 	@RequestMapping(value="/recipeDetails", method=RequestMethod.GET)
 	public void listRequestedRecipes(@RequestParam(value="Id", required=true) Long Id, Map<String, Object> model) {
-		CommentForm commentForm = new CommentForm();
+		Comment commentForm = new Comment();
 		
 		List<Comment> comments = commentService.getComments(Id);
 		
 		Recipe recipe = recipeService.get(Id);
-		System.out.println("LOGI " + recipe.getIngredientList().size());
 		model.put("recipe", recipe);
 		model.put("commentForm", commentForm);
 		model.put("commentList", comments);
 	}
 
 	@RequestMapping(value="/addComment", method=RequestMethod.POST)
-	public String addComment(@ModelAttribute("commentForm") CommentForm commentForm, Map<String, Object> model) {
+	public String addComment(@ModelAttribute("commentForm") Comment commentForm, Map<String, Object> model) {
 
 		model.put("commentForm", commentForm);
 		
@@ -61,8 +60,7 @@ public class RecipeController {
 		commentForm.setDate(new Date());
 		commentForm.setRating(0);
 		
-		Comment comment = commentForm.toComment();
-		commentService.create(comment);
+		commentService.create(commentForm);
 		
 		
 		return "redirect:" + URL + "?Id=" + commentForm.getRecipeId();
