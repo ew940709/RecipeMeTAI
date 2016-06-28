@@ -66,9 +66,14 @@
 
 			<div class="container col-md-4 pull-right">
 
-				<div class="panel panel-default ">
+				<div class="panel panel-primary ">
+					<div class="panel-heading">
+							<h3 class="panel-title">
+								Ingredients:
+							</h3>
+					</div>
 					<div class="panel-body">
-						<h3>Ingredients:</h3>
+
 						<c:forEach var="ingredient" items="${recipe.ingredientList}">
 					${ingredient.name}										
 				</c:forEach>
@@ -79,10 +84,14 @@
 
 			<div class="container col-md-12">
 
-				<div class="panel panel-default ">
-
+				<div class="panel panel-primary ">
+					<div class="panel-heading">
+							<h3 class="panel-title">
+								Method:
+							</h3>
+					</div>
 					<div class="panel-body">
-						<h3>Method:</h3>${recipe.description}</div>
+						${recipe.description}</div>
 				</div>
 
 			</div>
