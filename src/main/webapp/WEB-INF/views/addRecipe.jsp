@@ -49,18 +49,22 @@
 	<div class="container loginBox">
 		<h1>Add recipe</h1>
 
-		<form:form action="addRecipe" method="POST" commandName="recipeForm">
+		<form:form class="form-horizontal" action="addRecipe" method="POST" commandName="recipeForm" role="form">
 			<fieldset>
 				<div class="row">
 
 					<div class="col-md-4 pull-left ">
 						<div class="container">
-
-								<label>Title</label><br>
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="title">Title</label><br>
 								<form:input class="form-control title-input" placeholder="Enter title" path="title" />
-							
-								<label>Photo</label> <br>
-								<form:input type="file" path="photo" size="50"/>
+							</div>
+								
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="photo">Photo</label> <br>
+								<form:input class="form-control" type="file" path="photo" size="50"/>
+							</div>
+								
 							
 							<c:forEach var="mapEntry" items="${recipeForm.selectedIngredients}"
 								varStatus="status">
@@ -108,12 +112,11 @@
 								</div>
 							</c:forEach>
 
-	
-								<label>Description</label><br>
-								<form:textarea class="form-control description-box" path="description" /><br>
-							
-							
-
+							<div class="form-group">
+								<label class="control-label col-sm-2" for="descripion" >Description</label><br>
+								<form:textarea class="form-control" path="description" /><br>
+							</div>
+								
 						</div>
 
 					</div>
@@ -128,7 +131,6 @@
 
 			</fieldset>
 		</form:form>
-		<div></div>
 	</div>
 	<div id="footer" class="">
 		<div class="container">
