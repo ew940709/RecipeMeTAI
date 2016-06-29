@@ -14,7 +14,11 @@
 <link rel="stylesheet" href="<c:url value='/styles/bootstrap.min.css'/>">
 <link rel="stylesheet"
 	href="<c:url value='/styles/bootstrap-theme.css'/>">
+<link rel="stylesheet"
+	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="<c:url value='/scripts/lib/bootstrap.min.js'/>"></script>
+
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -47,41 +51,67 @@
 	</nav>
 
 	<div class="container loginBox">
-		<c:forEach var="recipe" items="${recipes}" varStatus="status">
-			<div class="container">
+		<div class="row">
+			<div class="col-sm-4">
+				<c:forEach var="recipe" items="${recipes}" varStatus="status">
+					<div class="container">
 
-				<div class="panel panel-primary ">
+						<div id="panelBox" class="panel panel-primary ">
 
-					<div class="panel-heading">
+							<div class="panel-heading">
 
-						<c:set var="recipeURL">
-							<c:url value="recipeDetails">
-								<c:param name="Id" value="${recipe.id}" />
-							</c:url>
-						</c:set>
-						<h2>
-							<a href="<c:url value="${recipeURL}"/>">${recipe.title}</a>
-						</h2>
+								<c:set var="recipeURL">
+									<c:url value="recipeDetails">
+										<c:param name="Id" value="${recipe.id}" />
+									</c:url>
+								</c:set>
+								<h2 class="recipeLink">
+									<a href="<c:url value="${recipeURL}"/>"><span
+										id="recipeLink">${recipe.title}</span></a>
+								</h2>
+							</div>
+							<div class="panel-body">
+								<div class="container">
+									<div class="row">
+										<div class="col-sm-5">
+											<label>Ingredients:</label>
+											<c:forEach var="ingredient"
+												items="${recipe.ingredientMatches}">
+
+												<c:if test="${ingredient.matching}">
+													<span class="ingredient"> <i
+														class="fa fa-plus-square plus"></i> <label>${ingredient.ingredientName}</label>
+													</span>
+
+												</c:if>
+												<c:if test="${!ingredient.matching}">
+													<span class="ingredient"> <i
+														class="	fa fa-minus-square minus"></i> <label>${ingredient.ingredientName}</label>
+													</span>
+												</c:if>
+											</c:forEach>
+
+										</div>
+										<div class="col-sm-3">
+											<label>Author: </label>${recipe.author.name }
+										</div>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+
+
 					</div>
-					<div class="panel-body">
-						<c:forEach var="ingredient" items="${recipe.ingredientMatches}">
-							<label>${ingredient.ingredientName}</label>
-							<c:if test="${ingredient.matching}">
-								<p>zgadza sie</p><br>
-									</c:if>
-							<c:if test="${!ingredient.matching}">
-								<p>nie zgadza sie</p><br>
-							</c:if>
-						</c:forEach>
-
-					</div>
-				</div>
-
+				</c:forEach>
+				
 
 			</div>
-		</c:forEach>
-
-
+			<div class="col-sm-4">
+			
+			</div>
+		</div>
 
 
 	</div>

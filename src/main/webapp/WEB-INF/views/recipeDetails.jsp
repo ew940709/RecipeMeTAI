@@ -75,8 +75,8 @@
 					<div class="panel-body">
 
 						<c:forEach var="ingredient" items="${recipe.ingredientList}">
-					${ingredient.name}										
-				</c:forEach>
+							<span class="ingredient"> ${ingredient.name} </span>								
+						</c:forEach>
 					</div>
 				</div>
 

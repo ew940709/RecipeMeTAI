@@ -191,6 +191,33 @@ body {
 	margin-left: 15px;
 }
 
+#recipeLink{
+	color : white;
+	
+}
+
+.fa.plus{
+	margin-right: 5px;
+    color: green;
+}
+   
+   
+.fa.minus{
+	margin-right: 5px;
+    color: red;
+}
+
+
+.ingredient {
+	display: block;
+	width: 100%;
+}
+
+#panelBox {
+	width:70%;
+	margin-right: auto;
+	margin-left: auto;
+}
 
 }
 
