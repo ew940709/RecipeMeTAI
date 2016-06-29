@@ -56,7 +56,7 @@ public class RecipeDaoImpl extends GenericDaoImpl<Recipe> implements RecipeDao{
 	public Recipe updateRating(RatingForm ratingForm){
 		Recipe recipe = this.find(ratingForm.getRecipeId());
 		recipe.incrementVotesCount();
-		Double newAverageRating = (recipe.getAverageRating() + new Double(ratingForm.getRating())) / new Double(recipe.getVotesCount());
+		Double newAverageRating = ((recipe.getAverageRating()*(new Double(recipe.getVotesCount()-1))) + new Double(ratingForm.getRating())) / new Double(recipe.getVotesCount());
 		recipe.setAverageRating(newAverageRating);
 		return this.update(recipe);
 	}

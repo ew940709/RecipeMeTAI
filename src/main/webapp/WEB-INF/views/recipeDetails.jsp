@@ -60,6 +60,7 @@
 			<sec:authorize access="isAuthenticated()">
 				<div class="rating1  form-group">
 					<select onchange="ratingChanged()" class="form-control" id="ratingSelect">
+						<option>-</option>
 						<option>1</option>
 						<option>2</option>
 						<option>3</option>
