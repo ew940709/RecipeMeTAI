@@ -19,6 +19,7 @@
 	href="<c:url value='/styles/font-awesome.min.css'/>">
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="<c:url value='/scripts/lib/bootstrap.min.js'/>"></script>
+
 </head>
 
 <body>
@@ -56,6 +57,17 @@
 		<span class="post-attr">Posted by: ${recipe.author.name} </span>
 		<h2>
 			<span class="rating label label-primary">${recipe.averageRating }</span>
+			<sec:authorize access="isAuthenticated()">
+				<div class="rating1  form-group">
+					<select class="form-control" id="rating">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+				</div>
+			</sec:authorize>
 		</h2>
 
 
@@ -68,14 +80,12 @@
 
 				<div class="panel panel-primary ">
 					<div class="panel-heading">
-							<h3 class="panel-title">
-								Ingredients:
-							</h3>
+						<h3 class="panel-title">Ingredients:</h3>
 					</div>
 					<div class="panel-body">
 
 						<c:forEach var="ingredient" items="${recipe.ingredientList}">
-							<span class="ingredient"> ${ingredient.name} </span>								
+							<span class="ingredient"> ${ingredient.name} </span>
 						</c:forEach>
 					</div>
 				</div>
@@ -86,12 +96,9 @@
 
 				<div class="panel panel-primary ">
 					<div class="panel-heading">
-							<h3 class="panel-title">
-								Method:
-							</h3>
+						<h3 class="panel-title">Method:</h3>
 					</div>
-					<div class="panel-body">
-						${recipe.description}</div>
+					<div class="panel-body">${recipe.description}</div>
 				</div>
 
 			</div>
@@ -103,12 +110,14 @@
 		<hr class="" />
 
 		<div class="row container">
-			<h4><b>Comment list</b></h4>
+			<h4>
+				<b>Comment list</b>
+			</h4>
 			<c:forEach var="comment" items="${commentList }">
 				<div class="row">
 					<div class="container col-md-7">${comment.content}<span
 							class="post-attr"> ${comment.author.name} ${comment.date }</span>
-							<hr />
+						<hr />
 					</div>
 
 				</div>

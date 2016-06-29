@@ -219,5 +219,12 @@ body {
 	margin-left: auto;
 }
 
+.rating1{
+	display: inline-block;
+	float:right;
+	margin-right:5px;
+	
+}
+
 }
 
