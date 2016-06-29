@@ -18,7 +18,7 @@ import pl.edu.agh.tai.recipeme.model.Recipe;
 import pl.edu.agh.tai.recipeme.model.User;
 import pl.edu.agh.tai.recipeme.nowe.service.CommentService;
 import pl.edu.agh.tai.recipeme.nowe.service.RecipeService;
-import pl.edu.agh.tai.recipeme.util.CommentForm;
+import pl.edu.agh.tai.recipeme.util.RatingForm;
 import skeleton.service.UserService;
 
 @Controller
@@ -42,9 +42,12 @@ public class RecipeController {
 		List<Comment> comments = commentService.getComments(Id);
 		
 		Recipe recipe = recipeService.get(Id);
+		RatingForm ratingForm = new RatingForm(recipe.getId());
+		
 		model.put("recipe", recipe);
 		model.put("commentForm", commentForm);
 		model.put("commentList", comments);
+		model.put("ratingForm", ratingForm);
 	}
 
 	@RequestMapping(value="/addComment", method=RequestMethod.POST)
@@ -66,5 +69,13 @@ public class RecipeController {
 		return "redirect:" + URL + "?Id=" + commentForm.getRecipeId();
 
 	}
+	
+	@RequestMapping(value="/addRating", method=RequestMethod.POST)
+	public String addRating(@ModelAttribute("ratingForm") RatingForm ratingForm, Map<String, Object> model){
+		
+		
+		return "redirect:" + URL + "?Id=" + ratingForm.getRecipeId();
+	}
+	
 
 }

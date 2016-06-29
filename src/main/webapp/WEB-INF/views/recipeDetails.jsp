@@ -59,7 +59,7 @@
 			<span class="rating label label-primary">${recipe.averageRating }</span>
 			<sec:authorize access="isAuthenticated()">
 				<div class="rating1  form-group">
-					<select class="form-control" id="rating">
+					<select onchange="ratingChanged()" class="form-control" id="ratingSelect">
 						<option>1</option>
 						<option>2</option>
 						<option>3</option>
@@ -68,6 +68,10 @@
 					</select>
 				</div>
 			</sec:authorize>
+			<form:form action="addRating" method="POST" commandName="ratingForm" >
+				<form:input type="hidden" path="rating"/>
+				<form:input type="hidden" path="recipeId" value="${recipe.id }"/>
+			</form:form>
 		</h2>
 
 
@@ -158,5 +162,13 @@
 
 		</div>
 	</div>
+	
+	<script type="text/javascript">
+		function ratingChanged(){
+			var mySelect = document.getElementById("ratingSelect");
+			$("#rating").val(parseInt(mySelect.options[mySelect.selectedIndex].value));
+			$("#ratingForm").submit();
+		}
+	</script>
 </body>
 </html>
