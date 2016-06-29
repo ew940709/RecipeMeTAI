@@ -23,14 +23,12 @@ public class TestController {
 
 	@Autowired
 	UserService userService;
-	
+
 	@Autowired
 	CategoryService categoryService;
-	
+
 	@Autowired
 	IngredientService ingredientService;
-	
-	private boolean initialized = false;
 
 	public String initRoot() {
 
@@ -40,83 +38,156 @@ public class TestController {
 		root.setPassword(passwordEncoder.encode("root"));
 		root.setAddress("root@localhost");
 		root.setEmail("root@localhost");
-		
+
 		userService.save(root);
 		return "OK";
 	}
-	
-	private String initCategories(){
-		
-		Category c1 = new Category("spices");		
-		Category c2 = new Category("vegetables");		
-		Category c3 = new Category("fruits");		
-		Category c4 = new Category("meat");		
-		Category c5 = new Category("fish");		
-		Category c6 = new Category("dairy");		
-		Category c7 = new Category("sweets");
-		
-		categoryService.create(c1);
-		categoryService.create(c2);
-		categoryService.create(c3);
-		categoryService.create(c4);
-		categoryService.create(c5);
-		categoryService.create(c6);
-		categoryService.create(c7);
+
+	private String initCategories() {
+		List<Category> categoryList = new LinkedList<>();
+
+		categoryList.add(new Category("spices"));
+		categoryList.add(new Category("vegetables"));
+		categoryList.add(new Category("fruit"));
+		categoryList.add(new Category("meats"));
+		categoryList.add(new Category("fish"));
+		categoryList.add(new Category("dairy"));
+		categoryList.add(new Category("sweets"));
+		categoryList.add(new Category("vegan"));
+		categoryList.add(new Category("other"));
+		categoryList.add(new Category("lipids"));
+		categoryList.add(new Category("liquids"));
+		categoryList.add(new Category("grain products"));
+
+		for (Category category : categoryList) {
+			categoryService.create(category);
+		}
 
 		return "OKK";
 	}
-	
 
-	private String initIngredients(){
+	private String initIngredients() {
 		List<Ingredient> ingredients = new LinkedList<>();
-		
-		Category c1 = categoryService.get(new Long(1));		
-		Category c2 = categoryService.get(new Long(2));		
-		Category c3 = categoryService.get(new Long(3));		
-		Category c4 = categoryService.get(new Long(4));		
-		Category c5 = categoryService.get(new Long(5));		
-		Category c6 = categoryService.get(new Long(6));		
-		Category c7 = categoryService.get(new Long(7));		
-		
-		ingredients.add(new Ingredient("oregano", c1, true));
-		ingredients.add(new Ingredient("salt", c1, true));
-		ingredients.add(new Ingredient("pepper", c1, true));
-		ingredients.add(new Ingredient("tomato", c2, true));
-		ingredients.add(new Ingredient("potato", c2, true));
-		ingredients.add(new Ingredient("cucamber", c2, true));
-		ingredients.add(new Ingredient("apple", c3, true));
-		ingredients.add(new Ingredient("pear", c3, true));
-		ingredients.add(new Ingredient("strawberry", c3, true));
-		ingredients.add(new Ingredient("chicken", c4, true));
-		ingredients.add(new Ingredient("pork", c4, true));
-		ingredients.add(new Ingredient("beef", c4, true));
-		ingredients.add(new Ingredient("salmon", c5, true));
-		ingredients.add(new Ingredient("tuna", c5, true));
-		ingredients.add(new Ingredient("octopus", c5, true));
-		ingredients.add(new Ingredient("yoghurt", c6, true));
-		ingredients.add(new Ingredient("milk", c6, true));
-		ingredients.add(new Ingredient("cheese", c6, true));
-		ingredients.add(new Ingredient("ice cream", c7, true));
-		ingredients.add(new Ingredient("chocolate", c7, true));
-		ingredients.add(new Ingredient("honey", c7, true));
-		
-		for (Ingredient i: ingredients){
+
+		Category spices = categoryService.get(new Long(1));
+		Category vegetables = categoryService.get(new Long(2));
+		Category fruit = categoryService.get(new Long(3));
+		Category meat = categoryService.get(new Long(4));
+		Category fish = categoryService.get(new Long(5));
+		Category dairy = categoryService.get(new Long(6));
+		Category sweets = categoryService.get(new Long(7));
+		Category vegan = categoryService.get(new Long(8));
+		Category other = categoryService.get(new Long(9));
+		Category lipids = categoryService.get(new Long(10));
+		Category liquids = categoryService.get(new Long(11));
+		Category grain = categoryService.get(new Long(12));
+
+		ingredients.add(new Ingredient("oregano", spices, true));
+		ingredients.add(new Ingredient("salt", spices, true));
+		ingredients.add(new Ingredient("pepper", spices, true));
+		ingredients.add(new Ingredient("basil", spices, true));
+		ingredients.add(new Ingredient("curry", spices, true));
+		ingredients.add(new Ingredient("chili", spices, true));
+		ingredients.add(new Ingredient("sweet pepper", spices, true));
+		ingredients.add(new Ingredient("cumin", spices, true));
+		ingredients.add(new Ingredient("marjoram", spices, true));
+
+		ingredients.add(new Ingredient("tomato", vegetables, true));
+		ingredients.add(new Ingredient("potato", vegetables, true));
+		ingredients.add(new Ingredient("cucamber", vegetables, true));
+		ingredients.add(new Ingredient("courgette", vegetables, true));
+		ingredients.add(new Ingredient("onion", vegetables, true));
+		ingredients.add(new Ingredient("garlic", vegetables, true));
+		ingredients.add(new Ingredient("paprika", vegetables, true));
+		ingredients.add(new Ingredient("letuce", vegetables, true));
+		ingredients.add(new Ingredient("cabbage", vegetables, true));
+		ingredients.add(new Ingredient("leek", vegetables, true));
+		ingredients.add(new Ingredient("radish", vegetables, true));
+		ingredients.add(new Ingredient("chive", vegetables, true));
+		ingredients.add(new Ingredient("carrot", vegetables, true));
+		ingredients.add(new Ingredient("parsley", fruit, true));
+
+		ingredients.add(new Ingredient("apple", fruit, true));
+		ingredients.add(new Ingredient("pear", fruit, true));
+		ingredients.add(new Ingredient("strawberry", fruit, true));
+		ingredients.add(new Ingredient("raspberry", fruit, true));
+		ingredients.add(new Ingredient("blueberry", fruit, true));
+		ingredients.add(new Ingredient("plum", fruit, true));
+		ingredients.add(new Ingredient("banana", fruit, true));
+		ingredients.add(new Ingredient("pineapple", fruit, true));
+		ingredients.add(new Ingredient("pomegranate", fruit, true));
+		ingredients.add(new Ingredient("avocado", fruit, true));
+		ingredients.add(new Ingredient("orange", fruit, true));
+		ingredients.add(new Ingredient("mandarin", fruit, true));
+		ingredients.add(new Ingredient("lemon", fruit, true));
+		ingredients.add(new Ingredient("peach", fruit, true));
+
+		ingredients.add(new Ingredient("poultry", meat, true));
+		ingredients.add(new Ingredient("pork", meat, true));
+		ingredients.add(new Ingredient("beef", meat, true));
+		ingredients.add(new Ingredient("lamb", meat, true));
+		ingredients.add(new Ingredient("veal", meat, true));
+		ingredients.add(new Ingredient("game", meat, true));
+
+		ingredients.add(new Ingredient("salmon", fish, true));
+		ingredients.add(new Ingredient("tuna", fish, true));
+		ingredients.add(new Ingredient("octopus", fish, true));
+		ingredients.add(new Ingredient("shrimp", fish, true));
+		ingredients.add(new Ingredient("panga", fish, true));
+		ingredients.add(new Ingredient("eel", fish, true));
+		ingredients.add(new Ingredient("carp", fish, true));
+		ingredients.add(new Ingredient("frog", fish, true));
+
+		ingredients.add(new Ingredient("yoghurt", dairy, true));
+		ingredients.add(new Ingredient("milk", dairy, true));
+		ingredients.add(new Ingredient("cheese", dairy, true));
+		ingredients.add(new Ingredient("cream", dairy, true));
+		ingredients.add(new Ingredient("kephir", dairy, true));
+		ingredients.add(new Ingredient("buttermilk", dairy, true));
+
+		ingredients.add(new Ingredient("ice cream", sweets, true));
+		ingredients.add(new Ingredient("chocolate", sweets, true));
+		ingredients.add(new Ingredient("honey", sweets, true));
+		ingredients.add(new Ingredient("frosting", sweets, true));
+		ingredients.add(new Ingredient("whipped cream", sweets, true));
+
+		ingredients.add(new Ingredient("tofu", vegan, true));
+		ingredients.add(new Ingredient("soy milk", vegan, true));
+		ingredients.add(new Ingredient("soy", vegan, true));
+
+		ingredients.add(new Ingredient("sugar", other, true));
+		ingredients.add(new Ingredient("eggs", other, true));
+		ingredients.add(new Ingredient("pasta", other, true));
+
+		ingredients.add(new Ingredient("oil", lipids, true));
+		ingredients.add(new Ingredient("olive", lipids, true));
+		ingredients.add(new Ingredient("butter", lipids, true));
+		ingredients.add(new Ingredient("margarine", lipids, true));
+
+		ingredients.add(new Ingredient("water", liquids, true));
+		ingredients.add(new Ingredient("wine", liquids, true));
+		ingredients.add(new Ingredient("vodka", liquids, true));
+
+		ingredients.add(new Ingredient("flour", grain, true));
+		ingredients.add(new Ingredient("rice", grain, true));
+		ingredients.add(new Ingredient("buckwheat", grain, true));
+		ingredients.add(new Ingredient("barley", grain, true));
+		ingredients.add(new Ingredient("semolina", grain, true));
+
+		for (Ingredient i : ingredients) {
 			ingredientService.create(i);
 		}
-		
-		
+
 		return "OKK";
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET, value = "/init")
-	public @ResponseBody String initDatabase(){
-		System.out.println("------------Wywolanie test/init");
-		if (!initialized){
-			initCategories();
-			initIngredients();
-			initRoot();
-			initialized = true;
-		}
+	public @ResponseBody String initDatabase() {
+		
+		initCategories();
+		initIngredients();
+		initRoot();
+
 		return "OKK";
 	}
 
