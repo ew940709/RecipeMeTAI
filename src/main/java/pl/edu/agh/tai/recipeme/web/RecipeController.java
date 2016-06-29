@@ -73,6 +73,8 @@ public class RecipeController {
 	@RequestMapping(value="/addRating", method=RequestMethod.POST)
 	public String addRating(@ModelAttribute("ratingForm") RatingForm ratingForm, Map<String, Object> model){
 		
+		System.out.println("Rating: " + ratingForm.getRating() + " recipeId: " + ratingForm.getRecipeId());
+		recipeService.updateRating(ratingForm);
 		
 		return "redirect:" + URL + "?Id=" + ratingForm.getRecipeId();
 	}

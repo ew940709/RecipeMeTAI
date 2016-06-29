@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import pl.edu.agh.tai.recipeme.dao.generic.RecipeDao;
 import pl.edu.agh.tai.recipeme.model.Ingredient;
 import pl.edu.agh.tai.recipeme.model.Recipe;
+import pl.edu.agh.tai.recipeme.util.RatingForm;
 
 @Component("recipeDao")
 public class RecipeDaoImpl extends GenericDaoImpl<Recipe> implements RecipeDao{
@@ -49,6 +50,15 @@ public class RecipeDaoImpl extends GenericDaoImpl<Recipe> implements RecipeDao{
 		resultList.addAll(map.keySet());
 		
 		return resultList;
+	}
+	
+	@Override
+	public Recipe updateRating(RatingForm ratingForm){
+		Recipe recipe = this.find(ratingForm.getRecipeId());
+		recipe.incrementVotesCount();
+		Double newAverageRating = (recipe.getAverageRating() + new Double(ratingForm.getRating())) / new Double(recipe.getVotesCount());
+		recipe.setAverageRating(newAverageRating);
+		return this.update(recipe);
 	}
 
 }

@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import pl.edu.agh.tai.recipeme.model.Ingredient;
 import pl.edu.agh.tai.recipeme.model.Recipe;
+import pl.edu.agh.tai.recipeme.util.RatingForm;
 
 public interface RecipeService {
 
@@ -23,4 +24,7 @@ public interface RecipeService {
 	
 	@Transactional
 	List<Recipe> find (List<Ingredient> ingredients);
+	
+	@Transactional
+	Recipe updateRating(RatingForm ratingForm);
 }

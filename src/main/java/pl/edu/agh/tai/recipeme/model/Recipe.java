@@ -38,6 +38,8 @@ public class Recipe {
 	
 	private Double averageRating;
 	
+	private Integer votesCount = 0;
+	
 	
 	public Recipe(){
 		
@@ -51,6 +53,7 @@ public class Recipe {
 		this.description = description;
 		this.averageRating = 0.0;
 		this.ingredientList = new LinkedList<>();
+		this.votesCount = 0;
 	}
 	
 	public Recipe(RecipeForm recipeForm){
@@ -60,6 +63,7 @@ public class Recipe {
 		this.description = recipeForm.getDescription();
 		this.averageRating = 0.0;
 		this.ingredientList = new LinkedList<>();
+		this.votesCount = recipeForm.getVotesCount();
 
 	}
 
@@ -123,8 +127,20 @@ public class Recipe {
 		this.ingredientList.add(ingredient);
 	}
 
+	public Integer getVotesCount() {
+		return votesCount;
+	}
+
+	public void setVotesCount(Integer votesCount) {
+		this.votesCount = votesCount;
+	}
+
 	@Override
 	public String toString(){
 		return getId() + "-" + getTitle() + "-" + getDescription() + "-" + getAuthor().getName();
+	}
+	
+	public void incrementVotesCount(){
+		this.votesCount++;
 	}
 }

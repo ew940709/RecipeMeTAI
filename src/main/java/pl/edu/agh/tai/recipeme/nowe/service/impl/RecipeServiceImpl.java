@@ -9,6 +9,7 @@ import pl.edu.agh.tai.recipeme.dao.generic.RecipeDao;
 import pl.edu.agh.tai.recipeme.model.Ingredient;
 import pl.edu.agh.tai.recipeme.model.Recipe;
 import pl.edu.agh.tai.recipeme.nowe.service.RecipeService;
+import pl.edu.agh.tai.recipeme.util.RatingForm;
 
 @Service("recipeService")
 public class RecipeServiceImpl implements RecipeService {
@@ -40,6 +41,11 @@ public class RecipeServiceImpl implements RecipeService {
 	@Override
 	public List<Recipe> find(List<Ingredient> ingredients){
 		return recipeDao.find(ingredients);
+	}
+
+	@Override
+	public Recipe updateRating(RatingForm ratingForm) {
+		return recipeDao.updateRating(ratingForm);
 	}
 
 }

@@ -29,6 +29,8 @@ public class TestController {
 	
 	@Autowired
 	IngredientService ingredientService;
+	
+	private boolean initialized = false;
 
 	public String initRoot() {
 
@@ -108,9 +110,13 @@ public class TestController {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/init")
 	public @ResponseBody String initDatabase(){
-		initCategories();
-		initIngredients();
-		initRoot();
+		System.out.println("------------Wywolanie test/init");
+		if (!initialized){
+			initCategories();
+			initIngredients();
+			initRoot();
+			initialized = true;
+		}
 		return "OKK";
 	}
 

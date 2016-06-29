@@ -39,13 +39,6 @@ public class FindRecipeController {
 		ingredientGrid.setIngredientGrid(ingredients);
 		model.put("ingredientGrid", ingredientGrid);
 
-		for (Map.Entry<String, IngredientList> entry : ingredientGrid.getCategoryMap().entrySet()) {
-			System.out.println("CATEGORY: " + entry.getKey());
-			for (IngredientSelection is : entry.getValue().getIngList()) {
-				System.out.println("GET " + is);
-			}
-		}
-
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
@@ -63,10 +56,6 @@ public class FindRecipeController {
 		}
 
 		List<Recipe> foundRecipes = recipeService.find(ingredients);
-		System.out.println("---------Requested recipes: ");
-		for (Recipe recipe : foundRecipes) {
-			System.out.println(recipe);
-		}
 		List<RecipeMatch> foundRecipesInfo = getMatchingIngredientsInfo(foundRecipes, ingredients);
 		
 		redirectAttributes.addFlashAttribute("foundRecipes", foundRecipesInfo);
