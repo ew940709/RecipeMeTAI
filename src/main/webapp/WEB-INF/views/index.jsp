@@ -59,7 +59,7 @@
     </div>
     <div class="col-sm-4">
       <h3 class="text-center">Rate and add recipe</h3> 
-      <p>Share your favourite recipes and rate one that you tried. </p>
+      <p>You have a recipe you think everybody should try? Share it with other users! You can also rate ones you tried yourself!</p>
       <a href="<c:url value='/addRecipe' />" class="btn btn-light">Add</a>
     </div>
   </div>
