@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Users</title>
+<title>RecipeMe - Requested Recipes</title>
 <link rel="stylesheet" href="<c:url value='/styles/site.css'/>">
 <link rel="stylesheet" href="<c:url value='/styles/bootstrap.min.css'/>">
 <link rel="stylesheet"

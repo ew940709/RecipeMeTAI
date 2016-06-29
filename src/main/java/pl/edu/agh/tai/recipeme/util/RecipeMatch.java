@@ -24,13 +24,22 @@ public class RecipeMatch extends Recipe {
 	}
 
 	private void fillIngredientMatches(List<Ingredient> requestedIngredients) {
-		for(Ingredient requestedIngredient: requestedIngredients){
-			for(Ingredient recipeIngredient: getIngredientList()){
-				IngredientMatch ingredientMatch = new IngredientMatch(recipeIngredient.getName(),requestedIngredient.getId() == recipeIngredient.getId());
-				ingredientMatches.add(ingredientMatch);
-			}
-		}
+		IngredientMatch ingredientMatch;
+		boolean foundMatch;
 		
+		for(Ingredient recipeIngredient: getIngredientList()){
+			
+			foundMatch = false;
+			for(Ingredient requestedIngredient: requestedIngredients){
+			
+				if(requestedIngredient.getId() == recipeIngredient.getId()){
+					foundMatch = true;
+				}
+			}
+			ingredientMatch = new IngredientMatch(recipeIngredient.getName(),foundMatch);
+			ingredientMatches.add(ingredientMatch);
+		}
+		System.out.println("filled ingredientMatches for " + this.getTitle() + " size(): " + ingredientMatches.size());
 	}
 
 	public List<IngredientMatch> getIngredientMatches() {
