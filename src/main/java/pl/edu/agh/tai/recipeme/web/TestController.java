@@ -57,7 +57,7 @@ public class TestController {
 		categoryList.add(new Category("other"));
 		categoryList.add(new Category("lipids"));
 		categoryList.add(new Category("liquids"));
-		categoryList.add(new Category("grain products"));
+		categoryList.add(new Category("grain"));
 
 		for (Category category : categoryList) {
 			categoryService.create(category);
